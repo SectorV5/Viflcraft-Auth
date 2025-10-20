@@ -171,15 +171,35 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
 
     @Override
     public boolean validPassword(String password) {
-        var length = password.length() >= configuration.get(MINIMUM_PASSWORD_LENGTH);
-
-        if (!length) {
+        var minLength = configuration.get(MINIMUM_PASSWORD_LENGTH);
+        
+        if (minLength > 0 && password.length() < minLength) {
             return false;
         }
 
-        var upper = password.toUpperCase();
+        // Check for uppercase requirement
+        if (configuration.get(PASSWORD_REQUIRE_UPPERCASE)) {
+            if (!password.chars().anyMatch(Character::isUpperCase)) {
+                return false;
+            }
+        }
 
-        return !forbiddenPasswords.contains(upper);
+        // Check for number requirement
+        if (configuration.get(PASSWORD_REQUIRE_NUMBER)) {
+            if (!password.chars().anyMatch(Character::isDigit)) {
+                return false;
+            }
+        }
+
+        // Check for special character requirement
+        if (configuration.get(PASSWORD_REQUIRE_SPECIAL_CHAR)) {
+            String specialChars = "!@#$%^&*()-_+={}|\\:;'\"<>,.?/~`[]";
+            if (!password.chars().anyMatch(c -> specialChars.indexOf(c) >= 0)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     @Override
