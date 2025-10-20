@@ -7,6 +7,6 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'LibreLogin'
+rootProject.name = 'Viflcraft-Auth'
 include 'Plugin'
 include 'API'
