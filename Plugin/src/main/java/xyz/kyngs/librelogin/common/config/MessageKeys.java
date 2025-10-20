@@ -804,20 +804,6 @@ public class MessageKeys {
             ConfigurateHelper::getString
     );
 
-    public static final ConfigurationKey<String> SYNTAX_USER_PREMIUM = new ConfigurationKey<>(
-            "syntax.user-premium",
-            "<name>",
-            "This message is displayed when the player attempts to enable premium autologin for other user with wrong syntax.",
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<String> SYNTAX_USER_CRACKED = new ConfigurationKey<>(
-            "syntax.user-cracked",
-            "<name>",
-            "This message is displayed when the player attempts to disable premium autologin for other user with wrong syntax.",
-            ConfigurateHelper::getString
-    );
-
     public static final ConfigurationKey<String> SYNTAX_USER_REGISTER = new ConfigurationKey<>(
             "syntax.user-register",
             "<name> <password>",
@@ -829,13 +815,6 @@ public class MessageKeys {
             "syntax.user-login",
             "<name>",
             "This message is displayed when the player attempts to login other user with wrong syntax.",
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<String> SYNTAX_USER_2FA_OFF = new ConfigurationKey<>(
-            "syntax.user-2fa-off",
-            "<name>",
-            "This message is displayed when the player attempts to disable 2FA for other user with wrong syntax.",
             ConfigurateHelper::getString
     );
 
