@@ -104,13 +104,6 @@ public class MessageKeys {
             ConfigurateHelper::getString
     );
 
-    public static final ConfigurationKey<String> KICK_2FA_ENABLED = new ConfigurationKey<>(
-            "kick-2fa-enabled",
-            "Two-factor has been enabled! Please reconnect.",
-            "This message is displayed when the player enables 2FA.",
-            ConfigurateHelper::getString
-    );
-
     public static final ConfigurationKey<String> KICK_ALREADY_CONNECTED = new ConfigurationKey<>(
             "kick-already-connected",
             "You are already connected!",
