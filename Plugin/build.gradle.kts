@@ -75,7 +75,7 @@ blossom {
 }
 
 tasks.withType<ShadowJar> {
-    archiveFileName.set("LibreLogin.jar")
+    archiveFileName.set("ViflcraftAuth.jar")
 
     dependencies {
         exclude(dependency("org.slf4j:.*:.*"))
