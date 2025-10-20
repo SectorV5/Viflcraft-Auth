@@ -16,40 +16,6 @@ import xyz.kyngs.librelogin.common.config.key.ConfigurationKey;
 public class MessageKeys {
 
     /*
-    Kicks related to autologin
-     */
-
-    public static final ConfigurationKey<String> KICK_PREMIUM_ERROR_THROTTLED = new ConfigurationKey<>(
-            "kick-premium-error-throttled",
-            "The Mojang API is rate limiting our server, please try joining again in a while!",
-            "This message is displayed when the Mojang API is rate limiting us, therefore we cannot verify whether there is an account with the given username.",
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<String> KICK_PREMIUM_ERROR_UNDEFINED = new ConfigurationKey<>(
-            "kick-premium-error-undefined",
-            "There was some issue while communicating with Mojang, if the problem persists, contact the server administrators!",
-            """
-                    This message is displayed when there was an unknown issue while communicating with Mojang, therefore we cannot verify whether there is an account with the given username.
-                    The error will be printed to the console""",
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<String> KICK_PREMIUM_INFO_ENABLED = new ConfigurationKey<>(
-            "kick-premium-info-enabled",
-            "Autologin enabled!",
-            "This message is displayed when the player enables autologin, they need to be kicked.",
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<String> KICK_PREMIUM_INFO_DISABLED = new ConfigurationKey<>(
-            "kick-premium-info-disabled",
-            "Autologin disabled!",
-            "This message is displayed when the player disables autologin, they need to be kicked.",
-            ConfigurateHelper::getString
-    );
-
-    /*
     Kicks related to username
      */
 
