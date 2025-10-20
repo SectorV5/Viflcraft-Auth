@@ -818,13 +818,6 @@ public class MessageKeys {
             ConfigurateHelper::getString
     );
 
-    public static final ConfigurationKey<String> SYNTAX_2FA_CONFIRM = new ConfigurationKey<>(
-            "syntax.2fa-confirm",
-            "<code>",
-            "This message is displayed when the player attempts to confirm 2FA with wrong syntax.",
-            ConfigurateHelper::getString
-    );
-
     public static final ConfigurationKey<String> SYNTAX_CHANGE_PASSWORD = new ConfigurationKey<>(
             "syntax.change-password",
             "<oldPassword> <newPassword>",
