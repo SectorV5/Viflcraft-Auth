@@ -195,94 +195,36 @@ public class ConfigurationKeys {
             ConfigurateHelper::getString
     );
 
-    public static final ConfigurationKey<?> MIGRATION = ConfigurationKey.getComment(
-            "migration",
-            """
-                    This is used for migrating the database from other plugins.
-                    Please see the wiki for further information: https://github.com/kyngs/LibreLogin/wiki/Database-Migration
-                    """
-    );
-
-    public static final ConfigurationKey<Boolean> MIGRATION_ON_NEXT_STARTUP = new ConfigurationKey<>(
-            "migration.on-next-startup",
-            false,
-            "Migrate the database on the next startup.",
-            ConfigurateHelper::getBoolean
-    );
-
-    public static final ConfigurationKey<String> MIGRATION_TYPE = new ConfigurationKey<>(
-            "migration.type",
-            "authme-sqlite",
-            """
-                    The type of the migration. Available Types:
-                    jpremium-mysql - Can convert from MySQL JPremium SHA256, SHA512 and BCrypt
-                    authme-mysql - Can convert from MySQL AuthMe BCrypt and SHA256
-                    authme-sqlite - Can convert from SQLite AuthMe BCrypt and SHA256
-                    authme-postgresql - Can convert from PostgreSQL AuthMe BCrypt and SHA256
-                    aegis-mysql - Can convert from MySQL Aegis BCrypt
-                    dba-mysql - Can convert from MySQL DynamicBungeeAuth, which was configured to use SHA-512
-                    nlogin-sqlite - Can convert from SQLite NLogin SHA512
-                    nlogin-mysql - Can convert from MySQL NLogin SHA512
-                    loginsecurity-mysql - Can convert from MySQL LoginSecurity BCrypt
-                    loginsecurity-sqlite - Can convert from SQLite LoginSecurity BCrypt
-                    fastlogin-sqlite - Can convert from SQLite FastLogin, !!YOU MUST RUN CONVERSION FROM AUTHME FIRST!!
-                    fastlogin-mysql - Can convert from MySQL FastLogin, !!YOU MUST RUN CONVERSION FROM AUTHME FIRST!!
-                    limboauth-mysql - Can convert from MySQL LimboAuth BCrypt and SHA256
-                    authy-mysql - Can convert from MySQL Authy SHA256
-                    authy-sqlite - Can convert from SQLite Authy SHA256
-                    logit-mysql - Can convert from MySQL LogIt SHA256
-                    librelogin-mysql - Can convert from MySQL LibreLogin, useful for migrating to a different database
-                    librelogin-sqlite - Can convert from SQLite LibreLogin, useful for migrating to a different database
-                    """,
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<String> MIGRATION_MYSQL_OLD_DATABASE_TABLE = new ConfigurationKey<>(
-            "migration.old-database.mysql.table",
-            "user-data",
-            "The table of the old database.",
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<String> MIGRATION_POSTGRESQL_OLD_DATABASE_TABLE = new ConfigurationKey<>(
-            "migration.old-database.postgresql.table",
-            "user-data",
-            "The table of the old database.",
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<?> TOTP = ConfigurationKey.getComment(
-            "totp",
-            """
-                    This section is used for 2FA configuration.
-                    !! YOU MUST HAVE PROTOCOLIZE INSTALLED FOR THIS TO WORK !!
-                                        
-                    You can find more information on the wiki: https://github.com/kyngs/LibreLogin/wiki/2FA
-                    """
-    );
-
-    public static final ConfigurationKey<Boolean> TOTP_ENABLED = new ConfigurationKey<>(
-            "totp.enabled",
-            true,
-            """
-                    Should we enable TOTP-Based Two-Factor Authentication? If you don't know what this is, this is the 2FA used in applications like Google Authenticator etc.
-                    I heavily suggest you to read this wiki page: https://github.com/kyngs/LibreLogin/wiki/2FA
-                    """,
-            ConfigurateHelper::getBoolean
-    );
-
-    public static final ConfigurationKey<String> TOTP_LABEL = new ConfigurationKey<>(
-            "totp.label",
-            "LibreLogin Network",
-            "The label to be displayed in the 2FA app. Change this to your network name.",
-            ConfigurateHelper::getString
-    );
-
     public static final ConfigurationKey<Integer> MINIMUM_PASSWORD_LENGTH = new ConfigurationKey<>(
             "minimum-password-length",
-            -1,
+            8,
             "The minimum length of a password. Set to negative to disable.",
             ConfigurateHelper::getInt
+    );
+
+    public static final ConfigurationKey<Boolean> PASSWORD_REQUIRE_UPPERCASE = new ConfigurationKey<>(
+            "password-require-uppercase",
+            false,
+            "Should passwords require at least one uppercase letter? (Disabled by default)",
+            ConfigurateHelper::getBoolean
+    );
+
+    public static final ConfigurationKey<Boolean> PASSWORD_REQUIRE_SPECIAL_CHAR = new ConfigurationKey<>(
+            "password-require-special-char",
+            false,
+            """
+                    Should passwords require at least one special character?
+                    Allowed special characters: ! @ # $ % ^ & * ( ) - _ + = { } | \\ : ; ' " , < > . ? / ~ ` [ ]
+                    (Disabled by default)
+                    """,
+            ConfigurateHelper::getBoolean
+    );
+
+    public static final ConfigurationKey<Boolean> PASSWORD_REQUIRE_NUMBER = new ConfigurationKey<>(
+            "password-require-number",
+            false,
+            "Should passwords require at least one number? (Disabled by default)",
+            ConfigurateHelper::getBoolean
     );
 
     public static final ConfigurationKey<Integer> MINIMUM_USERNAME_LENGTH = new ConfigurationKey<>(
