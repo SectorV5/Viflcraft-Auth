@@ -764,7 +764,7 @@ public class MessageKeys {
 
     public static final ConfigurationKey<String> SYNTAX_LOGIN = new ConfigurationKey<>(
             "syntax.login",
-            "<password> [2fa_code]",
+            "<password>",
             "This message is displayed when the player attempts to login with wrong syntax.",
             ConfigurateHelper::getString
     );
@@ -773,13 +773,6 @@ public class MessageKeys {
             "syntax.register",
             "<password> <passwordRepeat>",
             "This message is displayed when the player attempts to register with wrong syntax.",
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<String> SYNTAX_PREMIUM = new ConfigurationKey<>(
-            "syntax.premium",
-            "<password>",
-            "This message is displayed when the player attempts to enable premium autologin with wrong syntax.",
             ConfigurateHelper::getString
     );
 
