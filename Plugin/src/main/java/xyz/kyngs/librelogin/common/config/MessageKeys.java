@@ -263,8 +263,55 @@ public class MessageKeys {
 
     public static final ConfigurationKey<String> ERROR_FORBIDDEN_PASSWORD = new ConfigurationKey<>(
             "error-forbidden-password",
-            "The password is too short and/or is not allowed!",
-            "This message is displayed when the player tries to register with a password that is too short or forbidden.",
+            "The password does not meet the requirements!",
+            "This message is displayed when the player tries to register with a password that does not meet the validation requirements.",
+            ConfigurateHelper::getString
+    );
+
+    public static final ConfigurationKey<String> ERROR_PASSWORD_TOO_SHORT = new ConfigurationKey<>(
+            "error-password-too-short",
+            "&cYour password is too short! Minimum length is %min_length% characters, but yours is only %actual_length% characters.",
+            "This message is displayed when the player's password is too short. %min_length% = minimum required length, %actual_length% = player's password length.",
+            ConfigurateHelper::getString
+    );
+
+    public static final ConfigurationKey<String> ERROR_PASSWORD_NO_UPPERCASE = new ConfigurationKey<>(
+            "error-password-no-uppercase",
+            "&cYour password must contain at least one uppercase letter (A-Z)!",
+            "This message is displayed when password strength validation is enabled and the password lacks an uppercase letter.",
+            ConfigurateHelper::getString
+    );
+
+    public static final ConfigurationKey<String> ERROR_PASSWORD_NO_NUMBER = new ConfigurationKey<>(
+            "error-password-no-number",
+            "&cYour password must contain at least one number (0-9)!",
+            "This message is displayed when password strength validation is enabled and the password lacks a number.",
+            ConfigurateHelper::getString
+    );
+
+    public static final ConfigurationKey<String> ERROR_PASSWORD_NO_SPECIAL_CHAR = new ConfigurationKey<>(
+            "error-password-no-special-char",
+            "&cYour password must contain at least one special character (e.g., ! @ # $ % ^ & * etc.)!",
+            "This message is displayed when password strength validation is enabled and the password lacks a special character.",
+            ConfigurateHelper::getString
+    );
+
+    public static final ConfigurationKey<String> INFO_WEAK_PASSWORD_WARNING = new ConfigurationKey<>(
+            "info-weak-password-warning",
+            """
+                    &c&l⚠ SECURITY WARNING ⚠
+                    &7Your password is weak and may be easy to guess!
+                    &7
+                    &7&lFor your account security, we recommend using a password that:
+                    &7• Is at least &e%min_length% characters long
+                    &7• Contains &eUPPERCASE &7and &elowercase &7letters
+                    &7• Includes at least one &enumber &7(0-9)
+                    &7• Has at least one &especial character &7(! @ # $ etc.)
+                    &7
+                    &7&oExample of a strong password: &eMyP@ssw0rd2024!
+                    &7
+                    &aYour current password works, but consider changing it to a stronger one for better security!""",
+            "This message is displayed on login when a player has a weak password. Shows in red color with security recommendations. %min_length% = minimum password length from config.",
             ConfigurateHelper::getString
     );
 
