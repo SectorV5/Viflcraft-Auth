@@ -550,10 +550,9 @@ public class MessageKeys {
     public static final ConfigurationKey<String> INFO_ABOUT = new ConfigurationKey<>(
             "info-about",
             """
-                    This server is running FOSS authentication plugin, LibreLogin.
+                    This server is running FOSS authentication plugin, Viflcraft Auth.
                     Version: %version%
-                    Authors: kyngs, and other contributors
-                    Source: https://github.com/kyngs/LibreLogin
+                    Based on LibreLogin by kyngs
                     License: Mozilla Public License 2.0""",
             """
                     This message is displayed when the player executes /librelogin about.
