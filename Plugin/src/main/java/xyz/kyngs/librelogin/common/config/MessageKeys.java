@@ -246,22 +246,6 @@ public class MessageKeys {
             ConfigurateHelper::getString
     );
 
-    public static final ConfigurationKey<String> ERROR_PREMIUM_THROTTLED = new ConfigurationKey<>(
-            "error-premium-throttled",
-            "The Mojang API is rate limiting our server, please try the command again in a while!",
-            "This message is displayed when the Mojang API is rate limiting us, therefore we cannot verify whether there is an account with the given username.",
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<String> ERROR_PREMIUM_UNKNOWN = new ConfigurationKey<>(
-            "error-premium-unknown",
-            "There was an unknown error while communicating with the mojang API, please check console for further details!",
-            """
-                    This message is displayed when there was an unknown issue while communicating with Mojang, therefore we cannot verify whether there is an account with the given username.
-                    The error will be printed to the console""",
-            ConfigurateHelper::getString
-    );
-
     public static final ConfigurationKey<String> ERROR_THROTTLE = new ConfigurationKey<>(
             "error-throttle",
             "You are sending commands too fast! Please wait a bit.",
