@@ -24,8 +24,6 @@ public class ConfigurationKeys {
             List.of(
                     "login",
                     "register",
-                    "2fa",
-                    "2faconfirm",
                     "l",
                     "log",
                     "reg",
