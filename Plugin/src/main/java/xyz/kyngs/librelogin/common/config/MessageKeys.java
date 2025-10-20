@@ -928,13 +928,6 @@ public class MessageKeys {
             ConfigurateHelper::getString
     );
 
-    public static final ConfigurationKey<String> AUTOCOMPLETE_USER_2FA_OFF = new ConfigurationKey<>(
-            "autocomplete.user-2fa-off",
-            "@players",
-            "This hint is displayed when the player starts typing the /librelogin user 2fa-off command.",
-            ConfigurateHelper::getString
-    );
-
     public static final ConfigurationKey<String> AUTOCOMPLETE_USER_EMAIL_OFF = new ConfigurationKey<>(
             "autocomplete.user-email-off",
             "@players",
@@ -960,13 +953,6 @@ public class MessageKeys {
             "autocomplete.user-pass-change",
             "@players newPassword",
             "This hint is displayed when the player starts typing the /librelogin user pass-change command.",
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<String> AUTOCOMPLETE_2FA_CONFIRM = new ConfigurationKey<>(
-            "autocomplete.2fa-confirm",
-            "code",
-            "This hint is displayed when the player starts typing the /2fa-confirm command.",
             ConfigurateHelper::getString
     );
 
