@@ -157,27 +157,6 @@ public class MessageKeys {
             ConfigurateHelper::getString
     );
 
-    public static final ConfigurationKey<String> ERROR_NOT_PAID = new ConfigurationKey<>(
-            "error-not-paid",
-            "This account does not exist in the Mojang database!",
-            "This message is displayed when the player tries to enable autologin, but their account does not exist in the Mojang database.",
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<String> ERROR_NOT_PREMIUM = new ConfigurationKey<>(
-            "error-not-premium",
-            "You do not have autologin enabled, enable it using /premium <password>!",
-            "This message is displayed when the player tries to disable autologin, but they do not have it enabled.",
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<String> ERROR_NOT_CRACKED = new ConfigurationKey<>(
-            "error-not-cracked",
-            "You have autologin enabled, disable it using /cracked!",
-            "This message is displayed when the player tries to enable autologin, but they already have it enabled.",
-            ConfigurateHelper::getString
-    );
-
     public static final ConfigurationKey<String> ERROR_PASSWORD_WRONG = new ConfigurationKey<>(
             "error-password-wrong",
             "Wrong password!",
