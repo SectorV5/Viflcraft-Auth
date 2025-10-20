@@ -682,34 +682,6 @@ public class MessageKeys {
     );
 
     /*
-    TOTP
-     */
-
-    public static final ConfigurationKey<String> TOTP_SHOW_INFO = new ConfigurationKey<>(
-            "totp-show-info",
-            """
-                    Please scan the QR code on the map into your 2FA app. For example, Google Authenticator or Authy.
-                    When you are complete, please execute the /2faconfirm <code> command to finish the process.
-                    Disconnect to abort.""",
-            "This message is displayed when the player is prompted to scan the 2FA QR code.",
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<String> TOTP_GENERATING = new ConfigurationKey<>(
-            "totp-generating",
-            "Generating 2FA code...",
-            "This message is displayed when player has begun the 2FA enable procedure.",
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<String> TOTP_WRONG_VERSION = new ConfigurationKey<>(
-            "totp-wrong-version",
-            "You must connect with client version %low% - %high%, in order to enable 2FA. You can then connect back with old version again.",
-            "This message is displayed when the player attempts to enable 2FA with an old client.",
-            ConfigurateHelper::getString
-    );
-
-    /*
     Emails
      */
 
