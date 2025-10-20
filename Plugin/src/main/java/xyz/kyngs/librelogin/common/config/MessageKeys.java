@@ -538,10 +538,8 @@ public class MessageKeys {
             "info-user",
             """
                     UUID: %uuid%
-                    Premium UUID: %premium_uuid%
                     Last Seen: %last_seen%
                     Joined: %joined%
-                    2FA: %2fa%
                     EMail: %email%
                     IP: %ip%
                     Last Authenticated: %last_authenticated%""",
