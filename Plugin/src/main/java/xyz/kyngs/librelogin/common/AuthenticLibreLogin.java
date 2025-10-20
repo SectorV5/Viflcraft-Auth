@@ -97,12 +97,10 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
     private final Map<Class<?>, DatabaseConnectorRegistration<?, ?>> databaseConnectors;
     private final Multimap<P, CancellableTask> cancelOnExit;
     private final PlatformHandle<P, S> platformHandle;
-    private final Set<String> forbiddenPasswords;
     protected Logger logger;
     private AuthenticPremiumProvider premiumProvider;
     private AuthenticEventProvider<P, S> eventProvider;
     private AuthenticServerHandler<P, S> serverHandler;
-    private TOTPProvider totpProvider;
     private AuthenticImageProjector<P, S> imageProjector;
     private FloodgateIntegration floodgateApi;
     private LuckPermsIntegration<P, S> luckpermsApi;
@@ -121,7 +119,6 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
         readProviders = new ConcurrentHashMap<>();
         databaseConnectors = new ConcurrentHashMap<>();
         platformHandle = providePlatformHandle();
-        forbiddenPasswords = new HashSet<>();
         cancelOnExit = HashMultimap.create();
     }
 
