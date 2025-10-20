@@ -269,13 +269,6 @@ public class ConfigurationKeys {
             ConfigurateHelper::getBoolean
     );
 
-    public static final ConfigurationKey<Integer> TOTP_DELAY = new ConfigurationKey<>(
-            "totp.delay",
-            1000,
-            "The delay in milliseconds until player is given a map to scan the QR code. Increase this value if the map disappears too quickly.",
-            ConfigurateHelper::getInt
-    );
-
     public static final ConfigurationKey<Boolean> MAIL_ENABLED = new ConfigurationKey<>(
             "mail.enabled",
             false,
