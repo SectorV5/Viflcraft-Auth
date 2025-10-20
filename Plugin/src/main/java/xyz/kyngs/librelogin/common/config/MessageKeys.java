@@ -253,13 +253,6 @@ public class MessageKeys {
             ConfigurateHelper::getString
     );
 
-    public static final ConfigurationKey<String> ERROR_NO_CONFIRM = new ConfigurationKey<>(
-            "error-no-confirm",
-            "Please use /premium <password> first!",
-            "This message is displayed when the player tries to run /premiumconfirm, before running /premium.",
-            ConfigurateHelper::getString
-    );
-
     public static final ConfigurationKey<String> ERROR_NO_MAIL_CONFIRM = new ConfigurationKey<>(
             "error-no-mail-confirm",
             "Please use /setemail <email> <password> first!",
