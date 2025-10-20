@@ -622,15 +622,8 @@ public class MessageKeys {
 
     public static final ConfigurationKey<String> PROMPT_LOGIN = new ConfigurationKey<>(
             "prompt-login",
-            "Please login using: &e/login &b<password> [2fa_code]",
+            "Please login using: &e/login &b<password>",
             "This message is displayed when the player is prompted to login.",
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<String> PROMPT_CONFIRM = new ConfigurationKey<>(
-            "prompt-confirm",
-            "You are about to enable premium autologin, please take note, that you &4WILL NOT&r be able to connect to your account from cracked client. You can turn this off later by using /cracked. To confirm this action, you have 5 minutes to run /confirmpremium",
-            "This message is displayed when the player is prompted to confirm autologin.",
             ConfigurateHelper::getString
     );
 
