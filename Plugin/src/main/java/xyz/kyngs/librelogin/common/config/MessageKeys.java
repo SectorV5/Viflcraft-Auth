@@ -166,29 +166,8 @@ public class MessageKeys {
 
     public static final ConfigurationKey<String> ERROR_NO_PASSWORD = new ConfigurationKey<>(
             "error-no-password",
-            "You don't have a password. You can try using /cracked to disable autologin, and then register.",
+            "You don't have a password. Please register first.",
             "This message is displayed when the player tries to change password without having one.",
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<String> TOTP_NOT_PROVIDED = new ConfigurationKey<>(
-            "totp-not-provided",
-            "You must provide a 2FA code! Use /login <password> <2FA code>, if you lost your code, contact the admins.",
-            "This message is displayed when the player tries to authorize without providing a 2FA code.",
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<String> TOTP_WRONG = new ConfigurationKey<>(
-            "totp-wrong",
-            "Wrong 2FA code!",
-            "This message is displayed when the player tries to authorize, or finish the 2FA enablement, with a wrong 2FA code.",
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<String> TOTP_NOT_AWAITING = new ConfigurationKey<>(
-            "totp-not-awaiting",
-            "You are currently not in the process of enabling 2FA! Please type /2fa to begin the process.",
-            "This message is displayed when the player attempts to finish the 2FA process, but they are not in the process of enabling 2FA.",
             ConfigurateHelper::getString
     );
 
