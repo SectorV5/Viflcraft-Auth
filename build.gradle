@@ -4,11 +4,11 @@ plugins {
 
 defaultTasks 'updateLicenses', 'shadowJar'
 
-version '0.24.0'
+version '1.0.0'
 
 subprojects {
     version = rootProject.version
-    group = 'xyz.kyngs.librelogin'
+    group = 'win.sectorfive.viflcraftauth'
 
     apply plugin: 'org.cadixdev.licenser'
 
