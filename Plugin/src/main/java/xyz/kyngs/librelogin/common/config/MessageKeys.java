@@ -886,13 +886,6 @@ public class MessageKeys {
             ConfigurateHelper::getString
     );
 
-    public static final ConfigurationKey<String> AUTOCOMPLETE_PREMIUM = new ConfigurationKey<>(
-            "autocomplete.premium",
-            "password",
-            "This hint is displayed when the player starts typing the /premium command.",
-            ConfigurateHelper::getString
-    );
-
     public static final ConfigurationKey<String> AUTOCOMPLETE_USER_INFO = new ConfigurationKey<>(
             "autocomplete.user-info",
             "@players",
@@ -918,20 +911,6 @@ public class MessageKeys {
             "autocomplete.user-delete",
             "@players",
             "This hint is displayed when the player starts typing the /librelogin user delete command.",
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<String> AUTOCOMPLETE_USER_PREMIUM = new ConfigurationKey<>(
-            "autocomplete.user-premium",
-            "@players",
-            "This hint is displayed when the player starts typing the /librelogin user premium command.",
-            ConfigurateHelper::getString
-    );
-
-    public static final ConfigurationKey<String> AUTOCOMPLETE_USER_CRACKED = new ConfigurationKey<>(
-            "autocomplete.user-cracked",
-            "@players",
-            "This hint is displayed when the player starts typing the /librelogin user cracked command.",
             ConfigurateHelper::getString
     );
 
