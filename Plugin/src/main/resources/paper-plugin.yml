@@ -1,5 +1,5 @@
-name: "LibreLogin"
-author: "kyngs"
+name: "ViflcraftAuth"
+author: "SectorFive"
 version: '${version}'
 main: "win.sectorfive.viflcraftauth.paper.PaperBootstrap"
 api-version: "1.19"
