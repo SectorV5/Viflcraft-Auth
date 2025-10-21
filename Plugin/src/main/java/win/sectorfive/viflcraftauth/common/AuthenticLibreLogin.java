@@ -61,7 +61,8 @@ import win.sectorfive.viflcraftauth.common.listener.LoginTryListener;
 import win.sectorfive.viflcraftauth.common.log.Log4JFilter;
 import win.sectorfive.viflcraftauth.common.log.SimpleLogFilter;
 import win.sectorfive.viflcraftauth.common.mail.AuthenticEMailHandler;
-import win.sectorfive.viflcraftauth.common.migrate.*;
+// Migration classes removed - data migration feature removed
+// import win.sectorfive.viflcraftauth.common.migrate.*;
 import win.sectorfive.viflcraftauth.common.premium.AuthenticPremiumProvider;
 import win.sectorfive.viflcraftauth.common.server.AuthenticServerHandler;
 import win.sectorfive.viflcraftauth.common.util.CancellableTask;
