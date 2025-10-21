@@ -150,19 +150,4 @@ public interface User {
      */
     boolean isRegistered();
 
-    /**
-     * Returns the email address of the current user.
-     *
-     * @return the email address as a string
-     */
-    @Nullable
-    String getEmail();
-
-    /**
-     * Sets the email address for the current user.
-     *
-     * @param email the email address to be set
-     */
-    void setEmail(@Nullable String email);
-
 }
