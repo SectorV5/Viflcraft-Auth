@@ -76,6 +76,14 @@ public class Command<P> extends BaseCommand {
     }
 
     protected void setPassword(Audience sender, User user, String password, String messageKey) {
+        // Validate password length first
+        var minLength = plugin.getConfiguration().get(win.sectorfive.viflcraftauth.common.config.ConfigurationKeys.MINIMUM_PASSWORD_LENGTH);
+        if (minLength > 0 && password.length() < minLength) {
+            throw new InvalidCommandArgument(getMessage("error-password-too-short", 
+                "%min_length%", String.valueOf(minLength),
+                "%actual_length%", String.valueOf(password.length())));
+        }
+        
         // Validate password and get detailed error message
         String validationError = plugin.validatePassword(password);
         if (validationError != null) {
