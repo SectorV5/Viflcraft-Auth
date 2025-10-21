@@ -52,8 +52,6 @@ public class VelocityViflcraftAuth extends AuthenticViflcraftAuth<Player, Regist
     @Inject
     private ProxyServer server;
     @Inject
-    private Metrics.Factory factory;
-    @Inject
     private PluginDescription description;
     @Nullable
     private VelocityRedisBungeeIntegration redisBungee;
