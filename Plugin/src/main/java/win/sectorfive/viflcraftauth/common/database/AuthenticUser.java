@@ -118,14 +118,6 @@ public class AuthenticUser implements User {
         return Objects.hash(uuid);
     }
 
-    public String getSecret() {
-        return secret;
-    }
-
-    public void setSecret(String secret) {
-        this.secret = secret;
-    }
-
     public String getIp() {
         return ip;
     }
