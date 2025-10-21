@@ -19,7 +19,6 @@ import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import org.bstats.bungeecord.Metrics;
-import org.bstats.charts.CustomChart;
 import org.jetbrains.annotations.Nullable;
 import win.sectorfive.viflcraftauth.api.Logger;
 import win.sectorfive.viflcraftauth.api.PlatformHandle;
