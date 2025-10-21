@@ -126,14 +126,14 @@ public class ConfigurationKeys {
 
     public static final ConfigurationKey<String> NEW_UUID_CREATOR = new ConfigurationKey<>(
             "new-uuid-creator",
-            "CRACKED",
+            "PLAYER",
             """
                     Sets which method should be used for creating fixed UUID when a new player is created.
                     See the wiki for further information: https://github.com/kyngs/LibreLogin/wiki/UUID-Creators
                     Available Creators:
                     RANDOM - Generates a random UUID
                     CRACKED - Generates a UUID based on the player's name, the same method as if the server was in offline mode
-                    MOJANG - If the player exists in the Mojang's database, it will be used. Otherwise, CRACKED will be used.
+                    PLAYER - Generates a deterministic UUID based on player name and join timestamp (recommended for Viflcraft Auth)
                     """,
             ConfigurateHelper::getString
     );
