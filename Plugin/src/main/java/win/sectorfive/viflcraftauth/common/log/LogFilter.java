@@ -22,8 +22,10 @@ public abstract class LogFilter {
         PROTECTED_COMMANDS.add("register");
         PROTECTED_COMMANDS.add("reg");
         PROTECTED_COMMANDS.add("premium");
-        PROTECTED_COMMANDS.add("autologin");
-        PROTECTED_COMMANDS.add("2faconfirm");
+        // autologin removed - premium autologin feature removed
+        // PROTECTED_COMMANDS.add("autologin");
+        // 2FA/TOTP removed
+        // PROTECTED_COMMANDS.add("2faconfirm");
         PROTECTED_COMMANDS.add("changepassword");
         PROTECTED_COMMANDS.add("changepass");
         PROTECTED_COMMANDS.add("passch");
