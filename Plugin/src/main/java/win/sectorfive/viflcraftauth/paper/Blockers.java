@@ -71,7 +71,7 @@ public class Blockers implements Listener {
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void onCommand(PlayerCommandPreprocessEvent event) {
-        if (authorizationProvider.isAuthorized(event.getPlayer()) && !authorizationProvider.isAwaiting2FA(event.getPlayer()))
+        if (authorizationProvider.isAuthorized(event.getPlayer()))
             return;
 
         var command = event.getMessage().substring(1).split(" ")[0];
