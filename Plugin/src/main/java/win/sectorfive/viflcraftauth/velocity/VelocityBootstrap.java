@@ -54,7 +54,7 @@ public class VelocityBootstrap implements ViflcraftAuthProvider<Player, Register
         // We cannot pass this as a parameter to the constructor because the plugin is technically still not loaded
         // And, we cannot past the container as a parameter to the constructor because the proxy still did not assign the instance to it.
         // So, we have to "mock" the container and pass this as the instance. I'm kinda surprised this works, but in theory could break in the future.
-        var libraryManager = new VelocityLibraryManager<>(logger, Path.of("plugins", "librelogin"), server.getPluginManager(), new PluginContainer() {
+        var libraryManager = new VelocityLibraryManager<>(logger, Path.of("plugins", "viflcraftauth"), server.getPluginManager(), new PluginContainer() {
             @Override
             public PluginDescription getDescription() {
                 return container.getDescription();
