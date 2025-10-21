@@ -31,9 +31,6 @@ import java.util.concurrent.TimeUnit;
 public class AuthenticAuthorizationProvider<P, S> extends AuthenticHandler<P, S> implements AuthorizationProvider<P> {
 
     private final Map<P, Boolean> unAuthorized;
-    private final Map<P, String> awaiting2FA;
-    private final Cache<UUID, EmailVerifyData> emailConfirmCache;
-    private final Cache<UUID, String> passwordResetCache;
 
     public AuthenticAuthorizationProvider(AuthenticLibreLogin<P, S> plugin) {
         super(plugin);
