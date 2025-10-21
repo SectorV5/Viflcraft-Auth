@@ -234,8 +234,7 @@ public abstract class LibreLoginSQLDatabaseProvider extends AuthenticDatabasePro
             } catch (SQLException ignored) {
             }
 
-            if (!columns.contains("secret"))
-                connection.prepareStatement("ALTER TABLE librepremium_data ADD COLUMN secret VARCHAR(255) NULL DEFAULT NULL").executeUpdate();
+            // TOTP removed - secret column no longer needed
             if (!columns.contains("ip"))
                 connection.prepareStatement("ALTER TABLE librepremium_data ADD COLUMN ip VARCHAR(255) NULL DEFAULT NULL").executeUpdate();
             if (!columns.contains("last_authentication"))
@@ -243,9 +242,7 @@ public abstract class LibreLoginSQLDatabaseProvider extends AuthenticDatabasePro
             if (!columns.contains("last_server")) {
                 connection.prepareStatement("ALTER TABLE librepremium_data ADD COLUMN last_server VARCHAR(255) NULL DEFAULT NULL").executeUpdate();
             }
-            if (!columns.contains("email")) {
-                connection.prepareStatement("ALTER TABLE librepremium_data ADD COLUMN email VARCHAR(255) NULL DEFAULT NULL").executeUpdate();
-            }
+            // Email functionality removed - email column no longer needed
 
             try {
                 connection.prepareStatement(addUnique("last_nickname")).executeUpdate();
