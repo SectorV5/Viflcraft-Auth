@@ -407,41 +407,7 @@ public class LibreLoginCommand<P> extends StaffCommand<P> {
         });
     }
 
-    @Subcommand("user emailoff")
-    @CommandPermission("librepremium.user.emailoff")
-    @Syntax("{@@syntax.user-email-off}")
-    @CommandCompletion("%autocomplete.user-email-off")
-    public CompletionStage<Void> onUserEMailOff(Audience audience, String name) {
-        return runAsync(() -> {
-            var user = getUserOtherWiseInform(name);
-
-            audience.sendMessage(getMessage("info-editing"));
-
-            user.setEmail(null);
-
-            getDatabaseProvider().updateUser(user);
-
-            audience.sendMessage(getMessage("info-edited"));
-        });
-    }
-
-    @Subcommand("user setemail")
-    @CommandPermission("librepremium.user.setemail")
-    @Syntax("{@@syntax.user-set-email}")
-    @CommandCompletion("%autocomplete.user-set-email")
-    public CompletionStage<Void> onUserSetEMail(Audience audience, String name, String email) {
-        return runAsync(() -> {
-            var user = getUserOtherWiseInform(name);
-
-            audience.sendMessage(getMessage("info-editing"));
-
-            user.setEmail(email);
-
-            getDatabaseProvider().updateUser(user);
-
-            audience.sendMessage(getMessage("info-edited"));
-        });
-    }
+    // Email functionality removed - emailoff and setemail commands removed
 
     @Subcommand("user pass-change")
     @CommandPermission("librepremium.user.pass-change")
