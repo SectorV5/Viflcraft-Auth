@@ -135,9 +135,11 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
         readProviders.put(registration.id(), registration);
     }
 
+    @Nullable
     @Override
     public AuthenticEMailHandler getEmailHandler() {
-        return eMailHandler;
+        // Email functionality removed - always return null
+        return null;
     }
 
     @Nullable
