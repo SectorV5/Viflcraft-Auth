@@ -210,15 +210,6 @@ public class VelocityViflcraftAuth extends AuthenticViflcraftAuth<Player, Regist
     }
 
     @Override
-    protected void initMetrics(CustomChart... charts) {
-        var metrics = factory.make(bootstrap, 17981);
-
-        for (CustomChart chart : charts) {
-            metrics.addCustomChart(chart);
-        }
-    }
-
-    @Override
     public Audience getAudienceFromIssuer(CommandIssuer issuer) {
         return ((VelocityCommandIssuer) issuer).getIssuer();
     }
