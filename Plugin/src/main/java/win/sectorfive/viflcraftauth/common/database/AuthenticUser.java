@@ -24,9 +24,8 @@ public class AuthenticUser implements User {
     private String ip;
     private Timestamp lastAuthentication;
     private String lastServer;
-    private String email;
 
-    public AuthenticUser(UUID uuid, UUID premiumUUID, HashedPassword hashedPassword, String lastNickname, Timestamp joinDate, Timestamp lastSeen, String ip, Timestamp lastAuthentication, String lastServer, String email) {
+    public AuthenticUser(UUID uuid, UUID premiumUUID, HashedPassword hashedPassword, String lastNickname, Timestamp joinDate, Timestamp lastSeen, String ip, Timestamp lastAuthentication, String lastServer) {
         this.uuid = uuid;
         this.premiumUUID = premiumUUID;
         this.hashedPassword = hashedPassword;
@@ -36,7 +35,6 @@ public class AuthenticUser implements User {
         this.ip = ip;
         this.lastAuthentication = lastAuthentication;
         this.lastServer = lastServer;
-        this.email = email;
     }
 
     public Timestamp getLastAuthentication() {
