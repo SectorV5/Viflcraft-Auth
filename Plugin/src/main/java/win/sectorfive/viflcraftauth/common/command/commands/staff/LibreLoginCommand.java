@@ -48,19 +48,7 @@ public class LibreLoginCommand<P> extends StaffCommand<P> {
         )));
     }
 
-    @Subcommand("email test")
-    @CommandPermission("librelogin.email.test")
-    @Syntax("{@@syntax.email-test}")
-    @CommandCompletion("%autocomplete.email-test")
-    public CompletionStage<Void> onEmailTest(Audience audience, String email) {
-        return runAsync(() -> {
-            if (plugin.getEmailHandler() == null)
-                throw new InvalidCommandArgument(getMessage("error-password-resetting-disabled"));
-            audience.sendMessage(getMessage("info-sending-email"));
-            plugin.getEmailHandler().sendTestMail(email);
-            audience.sendMessage(getMessage("info-sent-email"));
-        });
-    }
+    // Email functionality removed - email test command removed
 
     @Subcommand("dump")
     @CommandPermission("librelogin.dump")
