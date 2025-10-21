@@ -236,7 +236,7 @@ public class ConfigurationKeys {
 
     public static final ConfigurationKey<Long> SESSION_TIMEOUT = new ConfigurationKey<>(
             "session-timeout",
-            0L,
+            604800L,
             "Defines a time in seconds after a player's session expires. Default value is one week (604800 seconds). Set to zero or less to disable sessions.",
             ConfigurateHelper::getLong
     );
