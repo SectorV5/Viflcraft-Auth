@@ -16,7 +16,6 @@ import win.sectorfive.viflcraftauth.api.event.EventProvider;
 import win.sectorfive.viflcraftauth.api.event.EventTypes;
 import win.sectorfive.viflcraftauth.api.image.ImageProjector;
 import win.sectorfive.viflcraftauth.api.integration.LimboIntegration;
-import win.sectorfive.viflcraftauth.api.mail.EmailHandler;
 import win.sectorfive.viflcraftauth.api.premium.PremiumProvider;
 import win.sectorfive.viflcraftauth.api.server.ServerHandler;
 import win.sectorfive.viflcraftauth.api.util.SemanticVersion;
