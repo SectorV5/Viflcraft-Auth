@@ -1,7 +1,7 @@
 name: "LibreLogin"
 author: "kyngs"
 version: '${version}'
-main: "xyz.kyngs.librelogin.paper.PaperBootstrap"
+main: "win.sectorfive.viflcraftauth.paper.PaperBootstrap"
 api-version: 1.13
 
 softdepend:
