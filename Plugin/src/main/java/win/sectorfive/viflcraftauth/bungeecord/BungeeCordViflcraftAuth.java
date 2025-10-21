@@ -190,15 +190,6 @@ public class BungeeCordViflcraftAuth extends AuthenticViflcraftAuth<ProxiedPlaye
     }
 
     @Override
-    protected void initMetrics(CustomChart... charts) {
-        var metrics = new Metrics(bootstrap, 17982);
-
-        for (CustomChart chart : charts) {
-            metrics.addCustomChart(chart);
-        }
-    }
-
-    @Override
     public Audience getAudienceFromIssuer(CommandIssuer issuer) {
         return adventure.sender(issuer.getIssuer());
     }
