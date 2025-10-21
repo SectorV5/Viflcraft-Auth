@@ -577,7 +577,7 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
     public UUID generateNewUUID(String name, @Nullable UUID premiumID) {
         return switch (configuration.getNewUUIDCreator()) {
             case RANDOM -> UUID.randomUUID();
-            case MOJANG -> premiumID == null ? GeneralUtil.getCrackedUUIDFromName(name) : premiumID;
+            case PLAYER -> GeneralUtil.getPlayerUUIDFromNameAndTime(name);
             case CRACKED -> GeneralUtil.getCrackedUUIDFromName(name);
         };
     }
