@@ -135,7 +135,7 @@ public interface ViflcraftAuthPlugin<P, S> {
      * Registers a new database connector.
      *
      * @param factory The factory used to create the connector. The string parameter is the configuration prefix.
-     * @param clazz   The class the connector will be registered for. (e.g. {@link xyz.kyngs.librelogin.api.database.connector.MySQLDatabaseConnector})
+     * @param clazz   The class the connector will be registered for. (e.g. {@link win.sectorfive.viflcraftauth.api.database.connector.MySQLDatabaseConnector})
      * @param <C>     The type of the connector
      * @param <E>     The type of the exception
      * @param id      The ID of the connector
