@@ -33,7 +33,7 @@ import java.util.concurrent.CompletionStage;
 import static win.sectorfive.viflcraftauth.common.AuthenticLibreLogin.DATE_TIME_FORMATTER;
 import static win.sectorfive.viflcraftauth.common.AuthenticLibreLogin.GSON;
 
-@CommandAlias("librelogin")
+@CommandAlias("viflcraftauth|vauth|librel|librelogin")
 public class LibreLoginCommand<P> extends StaffCommand<P> {
 
     public LibreLoginCommand(AuthenticLibreLogin<P, ?> plugin) {
