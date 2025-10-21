@@ -70,16 +70,20 @@ rm -f /etc/dnsmasq.d/vm-bridge.conf
 systemctl restart dnsmasq 2>/dev/null || true
 
 echo -e "${YELLOW}[7/9] Restoring sysctl settings...${NC}"
-if [ -f /etc/sysctl.conf.backup* ]; then
-    LATEST_BACKUP=$(ls -t /etc/sysctl.conf.backup* | head -1)
-    cp "$LATEST_BACKUP" /etc/sysctl.conf
-    sysctl -p
-else
-    # Just comment out our changes
-    sed -i 's/^net.ipv4.ip_forward=1/#net.ipv4.ip_forward=1/' /etc/sysctl.conf
-    sed -i 's/^net.ipv6.conf.all.forwarding=1/#net.ipv6.conf.all.forwarding=1/' /etc/sysctl.conf
-    sysctl -p
+# Remove our specific sysctl config file if it exists
+if [ -f /etc/sysctl.d/99-vm-forwarding.conf ]; then
+    rm -f /etc/sysctl.d/99-vm-forwarding.conf
+    echo "  Removed /etc/sysctl.d/99-vm-forwarding.conf"
 fi
+
+# If backups exist, offer to restore
+if [ -f /etc/sysctl.conf.backup* ]; then
+    echo "  Found sysctl.conf backups - leaving as is to be safe"
+    echo "  If you want to restore, manually run: cp /etc/sysctl.conf.backup* /etc/sysctl.conf"
+fi
+
+# Note: We're NOT disabling IP forwarding as other services might need it
+echo "  IP forwarding left enabled (may be needed by other services)"
 
 echo -e "${YELLOW}[8/9] Removing installation directory...${NC}"
 rm -rf /opt/secure-vm
