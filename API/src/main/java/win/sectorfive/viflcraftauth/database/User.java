@@ -151,13 +151,6 @@ public interface User {
     boolean isRegistered();
 
     /**
-     * Checks if auto login is enabled for the current user.
-     *
-     * @return true if auto login is enabled, false otherwise
-     */
-    boolean autoLoginEnabled();
-
-    /**
      * Returns the email address of the current user.
      *
      * @return the email address as a string
