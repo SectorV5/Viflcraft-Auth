@@ -137,13 +137,6 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
 
     @Nullable
     @Override
-    public AuthenticEMailHandler getEmailHandler() {
-        // Email functionality removed - always return null
-        return null;
-    }
-
-    @Nullable
-    @Override
     public LimboIntegration<S> getLimboIntegration() {
         return null;
     }
