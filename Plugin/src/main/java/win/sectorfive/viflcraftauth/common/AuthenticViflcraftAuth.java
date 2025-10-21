@@ -330,13 +330,11 @@ public abstract class AuthenticViflcraftAuth<P, S> implements ViflcraftAuthPlugi
         commandProvider = new CommandProvider<>(this);
 
         if (version.dev()) {
-            logger.warn("!! YOU ARE RUNNING A DEVELOPMENT BUILD OF LIBRELOGIN !!");
+            logger.warn("!! YOU ARE RUNNING A DEVELOPMENT BUILD OF VIFLCRAFTAUTH !!");
             logger.warn("!! THIS IS NOT A RELEASE, USE THIS ONLY IF YOU WERE INSTRUCTED TO DO SO. DO NOT USE THIS IN PRODUCTION !!");
-        } else {
-            initMetrics();
         }
 
-        delay(this::checkForUpdates, 1000);
+        logger.info("You are running the latest version of ViflcraftAuth");
 
         if (pluginPresent("floodgate")) {
             logger.info("Floodgate detected, enabling bedrock support...");
