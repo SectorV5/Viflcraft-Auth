@@ -101,18 +101,6 @@ public class CommandProvider<P, S> extends AuthenticHandler<P, S> {
         manager.registerCommand(new ChangePasswordCommand<>(plugin));
         manager.registerCommand(new LibreLoginCommand<>(plugin));
 
-        if (plugin.getTOTPProvider() != null) {
-            manager.registerCommand(new TwoFactorAuthCommand<>(plugin));
-            manager.registerCommand(new TwoFactorConfirmCommand<>(plugin));
-        }
-
-        if (plugin.getEmailHandler() != null) {
-            manager.registerCommand(new SetEMailCommand<>(plugin));
-            manager.registerCommand(new VerifyEMailCommand<>(plugin));
-            manager.registerCommand(new ResetPasswordViaEMailCommand<>(plugin));
-            manager.registerCommand(new ConfirmPasswordReset<>(plugin));
-        }
-
     }
 
     public void registerConfirm(UUID uuid) {
