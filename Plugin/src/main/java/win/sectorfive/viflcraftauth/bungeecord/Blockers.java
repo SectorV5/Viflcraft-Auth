@@ -64,16 +64,12 @@ public class Blockers implements Listener {
     public void onServerConnect(ServerConnectEvent event) {
         if (!authorizationProvider.isAuthorized(event.getPlayer()) && event.getReason() != ServerConnectEvent.Reason.JOIN_PROXY) {
             event.setCancelled(true);
-        } else if (authorizationProvider.isAwaiting2FA(event.getPlayer())) {
-            if (!configuration.get(LIMBO).contains(event.getTarget().getName())) {
-                event.setCancelled(true);
-            }
         }
     }
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void onServerKick(ServerKickEvent event) {
-        if (!authorizationProvider.isAuthorized(event.getPlayer()) || authorizationProvider.isAwaiting2FA(event.getPlayer())) {
+        if (!authorizationProvider.isAuthorized(event.getPlayer())) {
             var reason = event.getKickReasonComponent();
             if (reason == null) {
                 event.getPlayer().disconnect("Limbo not running");
