@@ -165,22 +165,4 @@ public class AuthenticAuthorizationProvider<P, S> extends AuthenticHandler<P, S>
 
         wrong.forEach(unAuthorized::remove);
     }
-
-    public record EmailVerifyData(String email, String token, UUID uuid) {
-    }
-
-    public void beginTwoFactorAuth(User user, P player, TOTPData data) {
-        awaiting2FA.put(player, data.secret());
-
-        var limbo = plugin.getServerHandler().chooseLimboServer(user, player);
-
-        if (limbo == null) {
-            platformHandle.kick(player, plugin.getMessages().getMessage("kick-no-limbo"));
-            return;
-        }
-
-        platformHandle.movePlayer(player, limbo).whenComplete((t, e) -> {
-            if (t != null || e != null) awaiting2FA.remove(player);
-        });
-    }
 }
