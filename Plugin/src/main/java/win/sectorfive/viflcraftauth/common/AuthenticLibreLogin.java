@@ -447,7 +447,8 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
         for (DatabaseConnectorRegistration<?, ?> value : databaseConnectors.values()) {
             if (value.configClass() == null) continue;
             defaults.add(new BiHolder<>(value.configClass(), "database.properties." + value.id() + "."));
-            defaults.add(new BiHolder<>(value.configClass(), "migration.old-database." + value.id() + "."));
+            // Migration config removed
+            // defaults.add(new BiHolder<>(value.configClass(), "migration.old-database." + value.id() + "."));
         }
 
         configuration = new HoconPluginConfiguration(logger, defaults);
