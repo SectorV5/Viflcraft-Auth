@@ -169,23 +169,32 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
 
     @Override
     public boolean validPassword(String password) {
+        return validatePassword(password) == null;
+    }
+    
+    /**
+     * Validates a password and returns the specific error message key if invalid, null if valid.
+     * @param password The password to validate
+     * @return The message key for the specific validation error, or null if password is valid
+     */
+    public String validatePassword(String password) {
         var minLength = configuration.get(MINIMUM_PASSWORD_LENGTH);
         
         if (minLength > 0 && password.length() < minLength) {
-            return false;
+            return "error-password-too-short";
         }
 
         // Check for uppercase requirement
         if (configuration.get(PASSWORD_REQUIRE_UPPERCASE)) {
             if (!password.chars().anyMatch(Character::isUpperCase)) {
-                return false;
+                return "error-password-no-uppercase";
             }
         }
 
         // Check for number requirement
         if (configuration.get(PASSWORD_REQUIRE_NUMBER)) {
             if (!password.chars().anyMatch(Character::isDigit)) {
-                return false;
+                return "error-password-no-number";
             }
         }
 
@@ -193,11 +202,30 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
         if (configuration.get(PASSWORD_REQUIRE_SPECIAL_CHAR)) {
             String specialChars = "!@#$%^&*()-_+={}|\\:;'\"<>,.?/~`[]";
             if (!password.chars().anyMatch(c -> specialChars.indexOf(c) >= 0)) {
-                return false;
+                return "error-password-no-special-char";
             }
         }
 
-        return true;
+        return null;
+    }
+    
+    /**
+     * Checks if a password is weak (doesn't meet the optional strength requirements)
+     * @param password The password to check
+     * @return true if password is weak (doesn't meet optional requirements), false otherwise
+     */
+    public boolean isWeakPassword(String password) {
+        // Password is weak if any of the optional requirements are not met
+        boolean hasUppercase = password.chars().anyMatch(Character::isUpperCase);
+        boolean hasNumber = password.chars().anyMatch(Character::isDigit);
+        String specialChars = "!@#$%^&*()-_+={}|\\:;'\"<>,.?/~`[]";
+        boolean hasSpecialChar = password.chars().anyMatch(c -> specialChars.indexOf(c) >= 0);
+        
+        var minLength = configuration.get(MINIMUM_PASSWORD_LENGTH);
+        boolean meetsMinLength = minLength <= 0 || password.length() >= minLength;
+        
+        // If any recommended requirement is not met, password is weak
+        return !hasUppercase || !hasNumber || !hasSpecialChar || !meetsMinLength;
     }
 
     @Override
