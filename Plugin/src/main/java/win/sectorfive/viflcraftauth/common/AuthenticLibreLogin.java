@@ -580,33 +580,6 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
         ));*/
     }
 
-
-                try (var fos = new FileOutputStream(file)) {
-                    var dataBuffer = new byte[1024];
-                    int bytesRead;
-                    while ((bytesRead = in.read(dataBuffer, 0, 1024)) != -1) {
-                        fos.write(dataBuffer, 0, bytesRead);
-                    }
-                }
-                logger.info("Successfully downloaded forbidden passwords list");
-            } catch (IOException e) {
-                e.printStackTrace();
-                logger.warn("Failed to download forbidden passwords list, using template instead");
-                Files.copy(getResourceAsStream("forbidden-passwords-template.txt"), file.toPath());
-            }
-        }
-
-        try (var reader = new BufferedReader(new FileReader(file))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.startsWith("# ")) {
-                    continue;
-                }
-                forbiddenPasswords.add(line.toUpperCase(Locale.ROOT));
-            }
-        }
-    }
-
     private void checkForUpdates() {
         logger.info("Checking for updates...");
 
