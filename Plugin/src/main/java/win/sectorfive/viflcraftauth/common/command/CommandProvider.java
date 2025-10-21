@@ -23,8 +23,6 @@ import win.sectorfive.viflcraftauth.common.command.commands.premium.PremiumConfi
 import win.sectorfive.viflcraftauth.common.command.commands.premium.PremiumDisableCommand;
 import win.sectorfive.viflcraftauth.common.command.commands.premium.PremiumEnableCommand;
 import win.sectorfive.viflcraftauth.common.command.commands.staff.LibreLoginCommand;
-import win.sectorfive.viflcraftauth.common.command.commands.tfa.TwoFactorAuthCommand;
-import win.sectorfive.viflcraftauth.common.command.commands.tfa.TwoFactorConfirmCommand;
 import win.sectorfive.viflcraftauth.common.util.RateLimiter;
 
 import java.util.HashMap;
