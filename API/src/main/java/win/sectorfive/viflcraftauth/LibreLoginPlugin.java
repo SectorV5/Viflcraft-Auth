@@ -217,16 +217,6 @@ public interface LibreLoginPlugin<P, S> {
     ServerHandler<P, S> getServerHandler();
 
     /**
-     * Gets the email handler.
-     * <br>
-     * <b>This can be used for sending emails</b>
-     *
-     * @return The email handler, or null if email support is disabled
-     */
-    @Nullable
-    EmailHandler getEmailHandler();
-
-    /**
      * Gets the limbo provider integration.
      * <br>
      * <b>This can be used for creating limbo's</b>
