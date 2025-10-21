@@ -315,19 +315,21 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
 
         this.loginTryListener = new LoginTryListener<>(this);
 
-        // Moved to a different class to avoid class loading issues
-        GeneralUtil.checkAndMigrate(configuration, logger, this);
+        // Data migration feature removed - no longer checking and migrating
+        // GeneralUtil.checkAndMigrate(configuration, logger, this);
 
-        imageProjector = provideImageProjector();
+        // TOTP/2FA feature removed - image projector no longer needed
+        // imageProjector = provideImageProjector();
+        // if (imageProjector != null) {
+        //     if (!configuration.get(TOTP_ENABLED)) {
+        //         imageProjector = null;
+        //         logger.warn("2FA is disabled in the configuration, aborting...");
+        //     } else {
+        //         imageProjector.enable();
+        //     }
+        // }
 
-        if (imageProjector != null) {
-            if (!configuration.get(TOTP_ENABLED)) {
-                imageProjector = null;
-                logger.warn("2FA is disabled in the configuration, aborting...");
-            } else {
-                imageProjector.enable();
-            }
-        }        eMailHandler = configuration.get(MAIL_ENABLED) ? new AuthenticEMailHandler(this) : null;
+        eMailHandler = configuration.get(MAIL_ENABLED) ? new AuthenticEMailHandler(this) : null;
 
         authorizationProvider = new AuthenticAuthorizationProvider<>(this);
         commandProvider = new CommandProvider<>(this);
