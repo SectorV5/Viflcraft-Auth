@@ -63,11 +63,6 @@ public class AuthenticAuthorizationProvider<P, S> extends AuthenticHandler<P, S>
     }
 
     @Override
-    public boolean isAwaiting2FA(P player) {
-        return awaiting2FA.containsKey(player);
-    }
-
-    @Override
     public void authorize(User user, P player, AuthenticatedEvent.AuthenticationReason reason) {
         if (isAuthorized(player)) {
             throw new IllegalStateException("Player is already authorized");
