@@ -61,18 +61,7 @@ public class AuthMeSQLMigrateReadProvider extends SQLMigrateReadProvider {
                     }
 
                     users.add(
-                            new AuthenticUser(
-                                    GeneralUtil.getCrackedUUIDFromName(nickname),
-                                    null,
-                                    password,
-                                    nickname,
-                                    firstSeen == 0 ? null : new Timestamp(firstSeen),
-                                    lastSeen == 0 ? null : new Timestamp(lastSeen),
-                                    null,
-                                    null,
-                                    null,
-                                    null,
-                                    null
+                            new AuthenticUser(GeneralUtil.getCrackedUUIDFromName(nickname), null, password, nickname, firstSeen == 0 ? null : new Timestamp(firstSeen), lastSeen == 0 ? null : new Timestamp(lastSeen), null, null, null, null
                             )
                     );
 

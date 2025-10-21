@@ -43,18 +43,7 @@ public class AuthySQLMigrateReadProvider extends SQLMigrateReadProvider {
 
                     var password = new HashedPassword(passwordHash, null, "SHA-256");
 
-                    users.add(new AuthenticUser(
-                            UUID.fromString(uuid),
-                            null,
-                            password,
-                            username,
-                            Timestamp.from(Instant.now()),
-                            Timestamp.from(Instant.now()),
-                            null,
-                            ip,
-                            null,
-                            null,
-                            null
+                    users.add(new AuthenticUser(UUID.fromString(uuid), null, password, username, Timestamp.from(Instant.now()), Timestamp.from(Instant.now()), ip, null, null, null
                     ));
                 } catch (Exception e) {
                     logger.error("Error while migrating user from Authy db, omitting");

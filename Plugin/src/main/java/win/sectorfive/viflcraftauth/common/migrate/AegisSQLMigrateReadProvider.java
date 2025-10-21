@@ -52,16 +52,8 @@ public class AegisSQLMigrateReadProvider extends SQLMigrateReadProvider {
                         }
                     }
 
-                    users.add(new AuthenticUser(
-                            uuid,
-                            onlineID == null || !rs.getBoolean("premium") ? null : UUID.fromString(onlineID.replace(".", "")), //Aegis at it again, this time with a dot.
-                            password,
-                            nickname,
-                            Timestamp.valueOf(LocalDateTime.now()),
-                            Timestamp.valueOf(LocalDateTime.now()),
-                            null,
-                            null,
-                            null,
+                    users.add(new AuthenticUser(uuid, onlineID == null || !rs.getBoolean("premium") ? null : UUID.fromString(onlineID.replace(".", "")), //Aegis at it again, this time with a dot.
+                            password, nickname, Timestamp.valueOf(LocalDateTime.now()), null, null, null,
                             null,
                             null
                     ));

@@ -65,18 +65,7 @@ public class NLoginSQLMigrateReadProvider extends SQLMigrateReadProvider {
 
                     }
 
-                    users.add(new AuthenticUser(
-                            GeneralUtil.fromUnDashedUUID(uniqueIdString),
-                            premiumIdString == null ? null : GeneralUtil.fromUnDashedUUID(premiumIdString),
-                            password,
-                            lastNickname,
-                            firstSeen,
-                            lastSeen,
-                            null,
-                            ip,
-                            Timestamp.from(Instant.EPOCH),
-                            null,
-                            null
+                    users.add(new AuthenticUser(GeneralUtil.fromUnDashedUUID(uniqueIdString), premiumIdString == null ? null : GeneralUtil.fromUnDashedUUID(premiumIdString), password, lastNickname, firstSeen, lastSeen, ip, Timestamp.from(Instant.EPOCH), null, null
                     ));
 
                 } catch (Exception e) {

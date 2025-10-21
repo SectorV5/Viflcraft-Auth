@@ -63,18 +63,7 @@ public class JPremiumSQLMigrateReadProvider extends SQLMigrateReadProvider {
                         }
                     };
 
-                    users.add(new AuthenticUser(
-                            GeneralUtil.fromUnDashedUUID(uniqueIdString),
-                            premiumIdString == null ? null : GeneralUtil.fromUnDashedUUID(premiumIdString),
-                            password,
-                            lastNickname,
-                            firstSeen,
-                            lastSeen,
-                            null,
-                            null,
-                            null,
-                            null,
-                            null
+                    users.add(new AuthenticUser(GeneralUtil.fromUnDashedUUID(uniqueIdString), premiumIdString == null ? null : GeneralUtil.fromUnDashedUUID(premiumIdString), password, lastNickname, firstSeen, lastSeen, null, null, null, null
                     ));
 
                 } catch (Exception e) {

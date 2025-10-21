@@ -127,20 +127,9 @@ public abstract class LibreLoginSQLDatabaseProvider extends AuthenticDatabasePro
             var joinDate = rs.getTimestamp("joined");
             var lastSeen = rs.getTimestamp("last_seen");
 
-            return new AuthenticUser(
-                    id,
-                    premiumUUID == null ? null : UUID.fromString(premiumUUID),
-                    hashedPassword == null ? null : new HashedPassword(
-                            hashedPassword,
-                            salt,
-                            algo
-                    ),
-                    lastNickname,
-                    joinDate,
-                    lastSeen,
-                    rs.getString("secret"),
-                    rs.getString("ip"),
-                    rs.getTimestamp("last_authentication"),
+            return new AuthenticUser(id, premiumUUID == null ? null : UUID.fromString(premiumUUID), hashedPassword == null ? null : new HashedPassword(
+                            hashedPassword, salt, algo
+                    ), lastNickname, lastSeen, rs.getString("secret"), rs.getString("ip"), rs.getTimestamp("last_authentication"),
                     rs.getString("last_server"),
                     rs.getString("email")
             );

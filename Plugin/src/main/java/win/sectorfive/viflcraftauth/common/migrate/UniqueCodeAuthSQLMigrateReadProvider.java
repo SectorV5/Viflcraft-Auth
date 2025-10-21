@@ -67,18 +67,7 @@ public class UniqueCodeAuthSQLMigrateReadProvider extends SQLMigrateReadProvider
                         }
                     }
 
-                    users.add(new AuthenticUser(
-                            premiumUUID == null ? uuid : premiumUUID,
-                            premiumUUID,
-                            hashed,
-                            name,
-                            null,
-                            null,
-                            null,
-                            null,
-                            null,
-                            null,
-                            null
+                    users.add(new AuthenticUser(premiumUUID == null ? uuid : premiumUUID, premiumUUID, hashed, name, null, null, null, null, null, null
                     ));
                 } catch (Exception e) {
                     e.printStackTrace();

@@ -78,18 +78,7 @@ public class LimboAuthSQLMigrateReadProvider extends SQLMigrateReadProvider {
                         }
                     }
 
-                    users.add(new AuthenticUser(
-                            UUID.fromString(uniqueIdString),
-                            premiumIdString == null ? null : UUID.fromString(premiumIdString),
-                            password,
-                            lastNickname,
-                            new Timestamp(firstSeen),
-                            new Timestamp(lastSeen),
-                            null,
-                            ip,
-                            null,
-                            null,
-                            null
+                    users.add(new AuthenticUser(UUID.fromString(uniqueIdString), premiumIdString == null ? null : UUID.fromString(premiumIdString), password, lastNickname, new Timestamp(firstSeen), new Timestamp(lastSeen), ip, null, null, null
                     ));
 
                 } catch (Exception e) {

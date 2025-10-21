@@ -56,18 +56,7 @@ public class CrazyLoginSQLMigrateReadProvider extends SQLMigrateReadProvider {
                     }
 
                     users.add(
-                            new AuthenticUser(
-                                    GeneralUtil.getCrackedUUIDFromName(nickname),
-                                    null,
-                                    password,
-                                    nickname,
-                                    null,
-                                    lastSeen,
-                                    null,
-                                    null,
-                                    null,
-                                    null,
-                                    null
+                            new AuthenticUser(GeneralUtil.getCrackedUUIDFromName(nickname), null, password, nickname, null, lastSeen, null, null, null, null
                             )
                     );
 

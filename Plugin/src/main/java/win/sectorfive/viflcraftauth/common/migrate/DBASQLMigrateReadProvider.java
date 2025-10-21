@@ -50,18 +50,7 @@ public class DBASQLMigrateReadProvider extends SQLMigrateReadProvider {
                     } else password = null;
 
                     users.add(
-                            new AuthenticUser(
-                                    uuid,
-                                    rs.getBoolean("premium") ? uuid : null,
-                                    password,
-                                    name,
-                                    rs.getTimestamp("firstjoin"),
-                                    rs.getTimestamp("lastjoin"),
-                                    null,
-                                    null,
-                                    null,
-                                    null,
-                                    null
+                            new AuthenticUser(uuid, rs.getBoolean("premium") ? uuid : null, password, name, rs.getTimestamp("firstjoin"), rs.getTimestamp("lastjoin"), null, null, null, null
                             )
                     );
 

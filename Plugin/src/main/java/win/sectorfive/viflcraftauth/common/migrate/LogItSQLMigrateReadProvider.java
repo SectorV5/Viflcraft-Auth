@@ -57,18 +57,7 @@ public class LogItSQLMigrateReadProvider extends SQLMigrateReadProvider {
                     }
 
                     users.add(
-                            new AuthenticUser(
-                                    UUID.fromString(uuid),
-                                    null,
-                                    parsedPassword,
-                                    nickname,
-                                    firstSeen == 0 ? null : new Timestamp(firstSeen),
-                                    lastSeen == 0 ? null : new Timestamp(lastSeen),
-                                    null,
-                                    ip,
-                                    null,
-                                    null,
-                                    email
+                            new AuthenticUser(UUID.fromString(uuid), null, parsedPassword, nickname, firstSeen == 0 ? null : new Timestamp(firstSeen), lastSeen == 0 ? null : new Timestamp(lastSeen), ip, null, null, email
                             )
                     );
 

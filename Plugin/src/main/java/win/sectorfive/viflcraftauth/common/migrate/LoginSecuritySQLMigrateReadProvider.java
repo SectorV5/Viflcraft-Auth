@@ -48,18 +48,7 @@ public class LoginSecuritySQLMigrateReadProvider extends SQLMigrateReadProvider 
                     continue;
                 }
 
-                users.add(new AuthenticUser(
-                        uniqueId,
-                        null,
-                        hashed,
-                        lastNickname,
-                        firstSeen,
-                        lastSeen,
-                        null,
-                        null,
-                        lastSeen,
-                        null,
-                        null
+                users.add(new AuthenticUser(uniqueId, null, hashed, lastNickname, firstSeen, lastSeen, null, lastSeen, null, null
                 ));
             }
 
