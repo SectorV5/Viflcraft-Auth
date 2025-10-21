@@ -13,6 +13,6 @@ package win.sectorfive.viflcraftauth.common.config;
  */
 public enum NewUUIDCreator {
 
-    RANDOM, MOJANG, CRACKED
+    RANDOM, PLAYER, CRACKED
 
 }
