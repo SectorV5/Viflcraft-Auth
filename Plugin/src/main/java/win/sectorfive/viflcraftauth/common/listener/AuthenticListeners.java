@@ -102,7 +102,7 @@ public class AuthenticListeners<Plugin extends AuthenticLibreLogin<P, S>, P, S> 
 
             //noinspection ConstantConditions //kyngs: There's no way IntelliJ is right
             if (user.getPremiumUUID() != null) {
-                // We will have to encrypt, otherwise someone could forcefully disable other user's premium autologin
+                // Premium user - force online mode (AutoLogin removed)
                 return new PreLoginResult(PreLoginState.FORCE_ONLINE, null, user);
             }
         } else {
