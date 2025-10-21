@@ -231,13 +231,13 @@ public class AuthenticListeners<Plugin extends AuthenticLibreLogin<P, S>, P, S> 
                             "%username%", premiumUser.name()
                     ));
                 }
-                user = new AuthenticUser(newID, premiumUser.uuid(), null, username, Timestamp.valueOf(LocalDateTime.now()), Timestamp.valueOf(LocalDateTime.now()), ip.getHostAddress(), null, null, null
+                user = new AuthenticUser(newID, premiumUser.uuid(), null, username, Timestamp.valueOf(LocalDateTime.now()), Timestamp.valueOf(LocalDateTime.now()), ip.getHostAddress(), null, null
                 );
             } else {
                 if (premiumUser != null && !premiumUser.reliable()) {
                     plugin.getLogger().warn("The premium data for %s is not reliable, the user may not have the same name capitalization as the premium one. It is not safe to auto-register this user. Switching to offline registration!".formatted(username));
                 }
-                user = new AuthenticUser(newID, null, null, username, Timestamp.valueOf(LocalDateTime.now()), Timestamp.valueOf(LocalDateTime.now()), ip.getHostAddress(), null, null, null
+                user = new AuthenticUser(newID, null, null, username, Timestamp.valueOf(LocalDateTime.now()), Timestamp.valueOf(LocalDateTime.now()), ip.getHostAddress(), null, null
                 );
             }
 
