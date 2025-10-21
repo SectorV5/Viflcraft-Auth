@@ -95,10 +95,6 @@ public class AuthenticUser implements User {
         return hashedPassword != null;
     }
 
-    public boolean autoLoginEnabled() {
-        return premiumUUID != null;
-    }
-
     @Override
     public String getEmail() {
         return email;
