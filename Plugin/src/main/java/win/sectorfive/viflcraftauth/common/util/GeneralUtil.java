@@ -77,6 +77,29 @@ public class GeneralUtil {
         return UUID.nameUUIDFromBytes(("OfflinePlayer:" + name).getBytes(StandardCharsets.UTF_8));
     }
 
+    /**
+     * Generates a deterministic UUID based on player name and current timestamp.
+     * This creates a unique, reproducible UUID using:
+     * - Player username
+     * - Unix timestamp in milliseconds
+     * - Formatted date-time
+     *
+     * @param name The player's username
+     * @return A deterministic UUID based on the player name and join timestamp
+     */
+    public static UUID getPlayerUUIDFromNameAndTime(String name) {
+        if (name == null) return null;
+        
+        long unixTimestamp = System.currentTimeMillis();
+        String formattedDateTime = java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        
+        // Create a deterministic string combining username, unix timestamp, and formatted datetime
+        String uuidSource = String.format("VifcraftPlayer:%s:%d:%s", name, unixTimestamp, formattedDateTime);
+        
+        // Generate UUID from the combined string
+        return UUID.nameUUIDFromBytes(uuidSource.getBytes(StandardCharsets.UTF_8));
+    }
+
     // Data migration feature removed
     /*
     public static void checkAndMigrate(HoconPluginConfiguration configuration, Logger logger, AuthenticLibreLogin<?, ?> plugin) {
