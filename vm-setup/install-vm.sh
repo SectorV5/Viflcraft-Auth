@@ -141,28 +141,22 @@ if ! ip link show vm-bridge &>/dev/null; then
     ip link set vm-bridge up
 fi
 
-echo -e "${YELLOW}[6/10] Configuring firewall and kill switch...${NC}"
-# Flush existing rules
-iptables -F FORWARD
-iptables -t nat -F POSTROUTING
+echo -e "${YELLOW}[6/10] Configuring firewall and kill switch (VM-only, host untouched)...${NC}"
+# IMPORTANT: Do NOT flush all rules or change default policies - preserve host functionality
+# Only add specific rules for VM traffic
 
-# Default policy: DROP everything from vm-bridge
-iptables -P FORWARD DROP
+# Allow traffic from vm-bridge ONLY to wg0 (VPN) - will be added by WireGuard PostUp
+# Allow return traffic from VPN to VM - will be added by WireGuard PostUp
+# NAT VM traffic through VPN (only 10.10.10.0/24 subnet) - will be added by WireGuard PostUp
+# KILL SWITCH: Block VM from non-VPN interfaces - will be added by WireGuard PostUp
 
-# Allow traffic from vm-bridge ONLY to wg0 (VPN)
-iptables -A FORWARD -i vm-bridge -o wg0 -j ACCEPT
-iptables -A FORWARD -i wg0 -o vm-bridge -m state --state RELATED,ESTABLISHED -j ACCEPT
+# Allow DHCP on bridge for VM
+iptables -A INPUT -i vm-bridge -p udp --dport 67 -j ACCEPT 2>/dev/null || true
 
-# NAT for VM traffic going through VPN
-iptables -t nat -A POSTROUTING -o wg0 -j MASQUERADE
+# Allow established connections on bridge
+iptables -A FORWARD -i vm-bridge -m state --state RELATED,ESTABLISHED -j ACCEPT 2>/dev/null || true
 
-# KILL SWITCH: Explicitly reject traffic from vm-bridge to any other interface
-iptables -A FORWARD -i vm-bridge ! -o wg0 -j REJECT --reject-with icmp-host-unreachable
-
-# Allow DHCP on bridge
-iptables -A INPUT -i vm-bridge -p udp --dport 67 -j ACCEPT
-
-# Save iptables rules
+# Save current iptables rules (preserve existing rules)
 netfilter-persistent save
 
 echo -e "${YELLOW}[7/10] Setting up dnsmasq for VM network...${NC}"
