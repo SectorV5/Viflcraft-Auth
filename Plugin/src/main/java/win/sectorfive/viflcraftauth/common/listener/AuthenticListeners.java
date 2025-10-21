@@ -121,8 +121,9 @@ public class AuthenticListeners<Plugin extends AuthenticLibreLogin<P, S>, P, S> 
 
                 // The following condition may be true if we've generated a new user
                 //noinspection ConstantConditions //kyngs: There's no way IntelliJ is right
-                if (userByName.autoLoginEnabled())
-                    return new PreLoginResult(PreLoginState.FORCE_ONLINE, null, userByName);
+                // AutoLogin removed - premium users no longer auto-login
+                // if (userByName.getPremiumUUID() != null)
+                //     return new PreLoginResult(PreLoginState.FORCE_ONLINE, null, userByName);
             } else {
                 User byName;
                 try {
