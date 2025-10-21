@@ -64,7 +64,6 @@ import win.sectorfive.viflcraftauth.common.util.CancellableTask;
 import win.sectorfive.viflcraftauth.common.util.GeneralUtil;
 
 import java.io.*;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.sql.Timestamp;
