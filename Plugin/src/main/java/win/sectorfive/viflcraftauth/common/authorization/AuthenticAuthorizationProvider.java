@@ -14,7 +14,6 @@ import net.kyori.adventure.title.Title;
 import win.sectorfive.viflcraftauth.api.authorization.AuthorizationProvider;
 import win.sectorfive.viflcraftauth.api.database.User;
 import win.sectorfive.viflcraftauth.api.event.events.AuthenticatedEvent;
-import win.sectorfive.viflcraftauth.api.totp.TOTPData;
 import win.sectorfive.viflcraftauth.common.AuthenticHandler;
 import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
 import win.sectorfive.viflcraftauth.common.config.ConfigurationKeys;
