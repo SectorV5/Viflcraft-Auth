@@ -998,4 +998,61 @@ public class MessageKeys {
             ConfigurateHelper::getString
     );
 
+    // New admin command messages for Viflcraft Auth
+    public static final ConfigurationKey<String> INFO_RESET_PASSWORD_GENERATED = new ConfigurationKey<>(
+            "info-reset-password-generated",
+            "<gold>Temporary password generated for <red>%username%<gold>: <yellow>%password%\n<gold>Give this password to the user. They will be prompted to change it upon login.",
+            "This message is displayed when an admin generates a reset password for a user.",
+            ConfigurateHelper::getString
+    );
+
+    public static final ConfigurationKey<String> INFO_PASSWORD_SET = new ConfigurationKey<>(
+            "info-password-set",
+            "<green>Password successfully set for user <yellow>%username%<green>.",
+            "This message is displayed when an admin forcefully sets a user's password.",
+            ConfigurateHelper::getString
+    );
+
+    public static final ConfigurationKey<String> INFO_RESET_PASSWORD_DETECTED = new ConfigurationKey<>(
+            "info-reset-password-detected",
+            "<red><bold>⚠ WARNING:</bold> <yellow>You are using a temporary reset password!",
+            "This message is displayed when a user logs in with a RESET password.",
+            ConfigurateHelper::getString
+    );
+
+    public static final ConfigurationKey<String> INFO_PLEASE_CHANGE_PASSWORD = new ConfigurationKey<>(
+            "info-please-change-password",
+            "<gold>Please change your password immediately using: <yellow>/changepassword <oldPassword> <newPassword>",
+            "This message prompts users to change their password after logging in with a RESET password.",
+            ConfigurateHelper::getString
+    );
+
+    public static final ConfigurationKey<String> SYNTAX_RESET = new ConfigurationKey<>(
+            "syntax.reset",
+            "<username>",
+            "This hint is displayed for the /viflcraftauth reset command syntax.",
+            ConfigurateHelper::getString
+    );
+
+    public static final ConfigurationKey<String> SYNTAX_SET = new ConfigurationKey<>(
+            "syntax.set",
+            "<username> <password>",
+            "This hint is displayed for the /viflcraftauth set command syntax.",
+            ConfigurateHelper::getString
+    );
+
+    public static final ConfigurationKey<String> AUTOCOMPLETE_RESET = new ConfigurationKey<>(
+            "autocomplete.reset",
+            "@players",
+            "This hint is displayed when typing the /viflcraftauth reset command.",
+            ConfigurateHelper::getString
+    );
+
+    public static final ConfigurationKey<String> AUTOCOMPLETE_SET = new ConfigurationKey<>(
+            "autocomplete.set",
+            "@players password",
+            "This hint is displayed when typing the /viflcraftauth set command.",
+            ConfigurateHelper::getString
+    );
+
 }
