@@ -78,7 +78,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ForkJoinPool;
 
-import static xyz.kyngs.librelogin.common.config.ConfigurationKeys.*;
+import static win.sectorfive.viflcraftauth.common.config.ConfigurationKeys.*;
 
 public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S> {
 
