@@ -186,7 +186,7 @@ public class VelocityViflcraftAuth extends AuthenticViflcraftAuth<Player, Regist
             redisBungee = new VelocityRedisBungeeIntegration();
         }
         super.enable();
-        getLogger().info("LibreLogin version " + getVersion() + " enabled!");
+        getLogger().info("ViflcraftAuth version " + getVersion() + " enabled!");
     }
 
     @Override
