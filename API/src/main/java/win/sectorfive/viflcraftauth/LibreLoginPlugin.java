@@ -258,7 +258,6 @@ public interface LibreLoginPlugin<P, S> {
      * @param ip                 The last IP of the user, nullable
      * @param lastAuthentication The last authentication date of the user, nullable
      * @param lastServer         The last server of the user, nullable
-     * @param email              The email of the user, nullable
      * @return an implementation of {@link User} containing the given parameters.
      */
     User createUser(
@@ -270,7 +269,6 @@ public interface LibreLoginPlugin<P, S> {
             Timestamp lastSeen,
             String ip,
             Timestamp lastAuthentication,
-            String lastServer,
-            String email
+            String lastServer
     );
 }
