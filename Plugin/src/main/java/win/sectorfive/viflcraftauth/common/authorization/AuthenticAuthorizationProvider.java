@@ -45,14 +45,6 @@ public class AuthenticAuthorizationProvider<P, S> extends AuthenticHandler<P, S>
         plugin.repeat(this::broadcastActionbars, 0, 1000);
     }
 
-    public Cache<UUID, EmailVerifyData> getEmailConfirmCache() {
-        return emailConfirmCache;
-    }
-
-    public Cache<UUID, String> getPasswordResetCache() {
-        return passwordResetCache;
-    }
-
     public void onExit(P player) {
         stopTracking(player);
     }
