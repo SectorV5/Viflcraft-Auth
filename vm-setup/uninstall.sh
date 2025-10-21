@@ -50,14 +50,13 @@ echo -e "${YELLOW}[4/9] Removing firewall rules...${NC}"
 # Remove VM-specific firewall rules
 iptables -D FORWARD -i vm-bridge -o wg0 -j ACCEPT 2>/dev/null || true
 iptables -D FORWARD -i wg0 -o vm-bridge -m state --state RELATED,ESTABLISHED -j ACCEPT 2>/dev/null || true
-iptables -t nat -D POSTROUTING -o wg0 -j MASQUERADE 2>/dev/null || true
+iptables -t nat -D POSTROUTING -s 10.10.10.0/24 -o wg0 -j MASQUERADE 2>/dev/null || true
 iptables -D FORWARD -i vm-bridge ! -o wg0 -j REJECT 2>/dev/null || true
 iptables -D INPUT -i vm-bridge -p udp --dport 67 -j ACCEPT 2>/dev/null || true
+iptables -D FORWARD -i vm-bridge -m state --state RELATED,ESTABLISHED -j ACCEPT 2>/dev/null || true
 
-# Reset FORWARD policy to ACCEPT (default)
-iptables -P FORWARD ACCEPT
-
-# Save clean rules
+# Do NOT change default policies - leave host firewall as it was
+# Save current rules (preserving host configuration)
 netfilter-persistent save
 
 echo -e "${YELLOW}[5/9] Removing network bridge...${NC}"
