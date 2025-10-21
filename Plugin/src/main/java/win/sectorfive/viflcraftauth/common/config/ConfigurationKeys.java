@@ -320,7 +320,7 @@ public class ConfigurationKeys {
     );
     public static final ConfigurationKey<Boolean> ALLOW_PROXY_CONNECTIONS = new ConfigurationKey<>(
             "allow-proxy-connections",
-            true,
+            false,
             """
                     !!!THIS ONLY AFFECTS PAPER!!!
                     Verifies whether the IP the players had used when authenticating to Mojang matches the IP they are connecting from. Disabling this may break LibreLogin if the server is running under a reverse proxy/VPN.
