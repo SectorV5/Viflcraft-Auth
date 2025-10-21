@@ -68,15 +68,15 @@ apt-get install -y \
     cloud-image-utils \
     genisoimage
 
-echo -e "${YELLOW}[3/10] Enabling IP forwarding...${NC}"
-backup_config /etc/sysctl.conf
-if ! grep -q "^net.ipv4.ip_forward=1" /etc/sysctl.conf; then
-    echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+echo -e "${YELLOW}[3/10] Enabling IP forwarding (minimal changes)...${NC}"
+# Enable IP forwarding only if not already enabled
+if ! sysctl net.ipv4.ip_forward | grep -q "= 1"; then
+    echo "net.ipv4.ip_forward=1" >> /etc/sysctl.d/99-vm-forwarding.conf
+    sysctl -w net.ipv4.ip_forward=1
+    echo "  Added IP forwarding to /etc/sysctl.d/99-vm-forwarding.conf"
+else
+    echo "  IP forwarding already enabled"
 fi
-if ! grep -q "^net.ipv6.conf.all.forwarding=1" /etc/sysctl.conf; then
-    echo "net.ipv6.conf.all.forwarding=1" >> /etc/sysctl.conf
-fi
-sysctl -p
 
 echo -e "${YELLOW}[4/10] Setting up WireGuard VPN (VM-ONLY routing)...${NC}"
 # CRITICAL: This config routes ONLY VM traffic through VPN, NOT the host
