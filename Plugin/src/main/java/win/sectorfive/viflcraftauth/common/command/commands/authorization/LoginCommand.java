@@ -46,6 +46,12 @@ public class LoginCommand<P> extends AuthorizationCommand<P> {
                 throw new InvalidCommandArgument(getMessage("error-password-wrong"));
             }
 
+            // Check if user is logging in with a RESET password
+            if (password.startsWith("RESET:")) {
+                sender.sendMessage(getMessage("info-reset-password-detected"));
+                sender.sendMessage(getMessage("info-please-change-password"));
+            }
+
             sender.sendMessage(getMessage("info-logged-in"));
             
             // Check if password is weak and warn the user
