@@ -20,21 +20,6 @@ import java.util.UUID;
 public interface User {
 
     /**
-     * Retrieves the TOTP secret string.
-     *
-     * @return the secret string
-     */
-    @Nullable
-    String getSecret();
-
-    /**
-     * Sets the TOTP secret string.
-     *
-     * @param secret the secret string to be set
-     */
-    void setSecret(@Nullable String secret);
-
-    /**
      * Retrieves the IP address of the current user.
      *
      * @return the IP address of the current user as a string
