@@ -584,8 +584,6 @@ public abstract class AuthenticViflcraftAuth<P, S> implements ViflcraftAuthPlugi
         }
     }
 
-    protected abstract void initMetrics(CustomChart... charts);
-
     @Override
     public AuthenticAuthorizationProvider<P, S> getAuthorizationProvider() {
         return authorizationProvider;
