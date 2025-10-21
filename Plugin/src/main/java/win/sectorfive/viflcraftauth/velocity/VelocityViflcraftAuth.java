@@ -19,7 +19,6 @@ import com.velocitypowered.api.proxy.ProxyServer;
 import com.velocitypowered.api.proxy.server.RegisteredServer;
 import net.kyori.adventure.audience.Audience;
 import net.kyori.adventure.text.Component;
-import org.bstats.charts.CustomChart;
 import org.bstats.velocity.Metrics;
 import org.jetbrains.annotations.Nullable;
 import win.sectorfive.viflcraftauth.api.Logger;
