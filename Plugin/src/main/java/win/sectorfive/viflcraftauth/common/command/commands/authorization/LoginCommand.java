@@ -47,6 +47,13 @@ public class LoginCommand<P> extends AuthorizationCommand<P> {
             }
 
             sender.sendMessage(getMessage("info-logged-in"));
+            
+            // Check if password is weak and warn the user
+            if (plugin.isWeakPassword(password)) {
+                var minLength = plugin.getConfiguration().get(win.sectorfive.viflcraftauth.common.config.ConfigurationKeys.MINIMUM_PASSWORD_LENGTH);
+                sender.sendMessage(getMessage("info-weak-password-warning", "%min_length%", String.valueOf(minLength > 0 ? minLength : 8)));
+            }
+            
             getAuthorizationProvider().authorize(user, player, AuthenticatedEvent.AuthenticationReason.LOGIN);
         });
     }
