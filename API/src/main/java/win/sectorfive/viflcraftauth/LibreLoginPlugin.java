@@ -263,7 +263,6 @@ public interface LibreLoginPlugin<P, S> {
      * @param lastNickname       The last nickname of the user, not null
      * @param joinDate           The join date of the user, not null
      * @param lastSeen           The last seen date of the user, not null
-     * @param secret             The TOTP secret of the user, nullable
      * @param ip                 The last IP of the user, nullable
      * @param lastAuthentication The last authentication date of the user, nullable
      * @param lastServer         The last server of the user, nullable
@@ -277,7 +276,6 @@ public interface LibreLoginPlugin<P, S> {
             String lastNickname,
             Timestamp joinDate,
             Timestamp lastSeen,
-            String secret,
             String ip,
             Timestamp lastAuthentication,
             String lastServer,
