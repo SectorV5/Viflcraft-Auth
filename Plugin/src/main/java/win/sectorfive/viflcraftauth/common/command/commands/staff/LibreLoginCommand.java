@@ -411,7 +411,8 @@ public class LibreLoginCommand<P> extends StaffCommand<P> {
 
             audience.sendMessage(getMessage("info-editing"));
 
-            user.setSecret(null);
+            // TOTP 2FA feature removed - setSecret() method no longer exists
+            // This command is kept for backward compatibility but does nothing
 
             getDatabaseProvider().updateUser(user);
 
