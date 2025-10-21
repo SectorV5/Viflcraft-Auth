@@ -212,19 +212,6 @@ public class PaperViflcraftAuth extends AuthenticViflcraftAuth<Player, World> {
     }
 
     @Override
-    protected void initMetrics(CustomChart... charts) {
-        var metrics = new Metrics(bootstrap, 17915);
-
-        for (var chart : charts) {
-            metrics.addCustomChart(chart);
-        }
-
-        var isVelocity = new SimplePie("is_velocity", () -> "Paper");
-
-        metrics.addCustomChart(isVelocity);
-    }
-
-    @Override
     protected void shutdownProxy(int code) {
         bootstrap.disable();
         bootstrap.getServer().shutdown();
