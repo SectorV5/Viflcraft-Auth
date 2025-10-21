@@ -1,0 +1,179 @@
+╔══════════════════════════════════════════════════════════════╗
+║          SECURE VM WITH VPN - QUICK START GUIDE              ║
+╚══════════════════════════════════════════════════════════════╝
+
+✅ FILES ALREADY UPLOADED TO YOUR VPS!
+
+Location: /root/vm-setup-files/ on 91.98.80.35
+
+┌──────────────────────────────────────────────────────────────┐
+│ STEP 1: SSH TO YOUR VPS                                      │
+└──────────────────────────────────────────────────────────────┘
+
+ssh root@91.98.80.35
+
+┌──────────────────────────────────────────────────────────────┐
+│ STEP 2: RUN INSTALLATION                                     │
+└──────────────────────────────────────────────────────────────┘
+
+cd /root/vm-setup-files
+sudo bash install-vm.sh
+
+⏱️  Takes 5-15 minutes (downloads Debian image)
+
+┌──────────────────────────────────────────────────────────────┐
+│ STEP 3: GET VM LOGIN CREDENTIALS                             │
+└──────────────────────────────────────────────────────────────┘
+
+sudo cat /opt/secure-vm/VM-CREDENTIALS.txt
+
+Save the username and password!
+
+┌──────────────────────────────────────────────────────────────┐
+│ STEP 4: FIND VM IP ADDRESS                                   │
+└──────────────────────────────────────────────────────────────┘
+
+Wait 1-2 minutes for VM to boot, then:
+
+sudo virsh domifaddr isolated-vm
+
+Look for IP like: 10.10.10.123
+
+┌──────────────────────────────────────────────────────────────┐
+│ STEP 5: SSH INTO THE VM                                      │
+└──────────────────────────────────────────────────────────────┘
+
+ssh vmuser@10.10.10.XXX
+(use password from Step 3)
+
+┌──────────────────────────────────────────────────────────────┐
+│ STEP 6: TEST VPN CONNECTION                                  │
+└──────────────────────────────────────────────────────────────┘
+
+Inside VM, run:
+curl ifconfig.me
+
+Should show VPN IP (NOT 91.98.80.35)
+
+╔══════════════════════════════════════════════════════════════╗
+║                    MANAGEMENT COMMANDS                        ║
+╚══════════════════════════════════════════════════════════════╝
+
+Start VM:
+  sudo /opt/secure-vm/scripts/vm-start.sh
+
+Stop VM:
+  sudo /opt/secure-vm/scripts/vm-stop.sh
+
+Check Status:
+  sudo /opt/secure-vm/scripts/vpn-status.sh
+
+Change VPN:
+  sudo /opt/secure-vm/scripts/vpn-change.sh
+
+Delete VM:
+  sudo /opt/secure-vm/scripts/vm-delete.sh
+
+Uninstall Everything:
+  sudo /opt/secure-vm/scripts/uninstall.sh
+
+╔══════════════════════════════════════════════════════════════╗
+║                 TROUBLESHOOTING                               ║
+╚══════════════════════════════════════════════════════════════╝
+
+VM won't start:
+  sudo systemctl start libvirtd
+  sudo virsh start isolated-vm
+
+No internet in VM:
+  sudo systemctl restart wg-airvpn
+
+Can't find VM IP:
+  sudo cat /var/lib/misc/dnsmasq.leases
+
+View all status:
+  sudo /opt/secure-vm/scripts/vpn-status.sh
+
+Check VPN logs:
+  sudo journalctl -u wg-airvpn -n 50
+
+╔══════════════════════════════════════════════════════════════╗
+║              GIVING ACCESS TO YOUR FRIEND                     ║
+╚══════════════════════════════════════════════════════════════╝
+
+Friend connects via 2 steps:
+
+1. SSH to VPS:
+   ssh root@91.98.80.35
+
+2. SSH to VM:
+   ssh vmuser@10.10.10.XXX
+
+Or use jump host (easier):
+   ssh -J root@91.98.80.35 vmuser@10.10.10.XXX
+
+Send friend:
+  - VPS IP: 91.98.80.35
+  - VM IP: (from virsh domifaddr command)
+  - VM username: vmuser
+  - VM password: (from /opt/secure-vm/VM-CREDENTIALS.txt)
+
+╔══════════════════════════════════════════════════════════════╗
+║                    SECURITY FEATURES                          ║
+╚══════════════════════════════════════════════════════════════╝
+
+✓ VM traffic ONLY goes through VPN
+✓ Kill switch: No VPN = No internet for VM
+✓ Isolated network: VM can't access host's main network
+✓ No IP leaks to Hetzner
+✓ VPN auto-reconnect on failure
+
+╔══════════════════════════════════════════════════════════════╗
+║                      VM DETAILS                               ║
+╚══════════════════════════════════════════════════════════════╝
+
+RAM: 1GB
+CPU: 4 cores
+Disk: 100GB
+OS: Debian 12 (ARM64)
+Network: 10.10.10.0/24 (isolated)
+VPN: WireGuard (Frankfurt, Germany)
+
+╔══════════════════════════════════════════════════════════════╗
+║                   IMPORTANT FILES                             ║
+╚══════════════════════════════════════════════════════════════╝
+
+Credentials:      /opt/secure-vm/VM-CREDENTIALS.txt
+VPN Config:       /opt/secure-vm/wireguard/airvpn.conf
+VM Disk:          /opt/secure-vm/vm-data/isolated-vm.qcow2
+Management:       /opt/secure-vm/scripts/
+Documentation:    /root/vm-setup-files/README.md
+
+╔══════════════════════════════════════════════════════════════╗
+║                  COMPLETE REMOVAL                             ║
+╚══════════════════════════════════════════════════════════════╝
+
+If you change your mind:
+
+sudo /opt/secure-vm/scripts/uninstall.sh
+
+Type: DELETE EVERYTHING
+
+This removes:
+  - VM and all data
+  - VPN configuration
+  - Network bridge
+  - Firewall rules
+  - All scripts
+
+Your VPS returns to original state.
+
+╔══════════════════════════════════════════════════════════════╗
+║                  READY TO START?                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+ssh root@91.98.80.35
+cd /root/vm-setup-files  
+sudo bash install-vm.sh
+
+See README.md for full documentation!
