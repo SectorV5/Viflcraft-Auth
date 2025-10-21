@@ -39,7 +39,7 @@ public class Blockers implements Listener {
         }
 
         if (event.getSender() instanceof ProxiedPlayer player) {
-            if (!authorizationProvider.isAuthorized(player) || authorizationProvider.isAwaiting2FA(player)) {
+            if (!authorizationProvider.isAuthorized(player)) {
                 event.setCancelled(true);
             }
         }
@@ -48,7 +48,7 @@ public class Blockers implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     public void onCommand(ChatEvent event) {
         if (!(event.getSender() instanceof ProxiedPlayer player)) return;
-        if (authorizationProvider.isAuthorized(player) && !authorizationProvider.isAwaiting2FA(player))
+        if (authorizationProvider.isAuthorized(player))
             return;
 
         var command = event.getMessage().substring(1).split(" ")[0];
