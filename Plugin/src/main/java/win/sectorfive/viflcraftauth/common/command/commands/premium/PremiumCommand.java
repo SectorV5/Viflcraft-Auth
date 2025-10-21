@@ -21,7 +21,7 @@ public class PremiumCommand<P> extends AuthorizationCommand<P> {
     }
 
     protected void checkPremium(User user) {
-        if (!user.getPremiumUUID() != null) throw new InvalidCommandArgument(getMessage("error-not-premium"));
+        if (user.getPremiumUUID() == null) throw new InvalidCommandArgument(getMessage("error-not-premium"));
     }
 
 }
