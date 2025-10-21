@@ -105,7 +105,7 @@ public class ConfigurationKeys {
 
     public static final ConfigurationKey<Integer> MILLISECONDS_TO_EXPIRE_LOGIN_ATTEMPTS = new ConfigurationKey<>(
             "milliseconds-to-refresh-login-attempts",
-            10000,
+            1800000,
             "Time to reset login attempts. The amount of time the player should have waited for their login attempts to expire. On every rejoin, login attempts are reset.",
             ConfigurateHelper::getInt
     );
