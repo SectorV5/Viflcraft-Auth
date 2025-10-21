@@ -174,16 +174,11 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
     
     /**
      * Validates a password and returns the specific error message key if invalid, null if valid.
+     * Note: Length validation should be done separately with detailed error message.
      * @param password The password to validate
      * @return The message key for the specific validation error, or null if password is valid
      */
     public String validatePassword(String password) {
-        var minLength = configuration.get(MINIMUM_PASSWORD_LENGTH);
-        
-        if (minLength > 0 && password.length() < minLength) {
-            return "error-password-too-short";
-        }
-
         // Check for uppercase requirement
         if (configuration.get(PASSWORD_REQUIRE_UPPERCASE)) {
             if (!password.chars().anyMatch(Character::isUpperCase)) {
