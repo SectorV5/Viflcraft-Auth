@@ -512,59 +512,6 @@ public abstract class AuthenticViflcraftAuth<P, S> implements ViflcraftAuthPlugi
         // All *MigrateReadProvider registrations have been removed
     }
 
-    private void checkForUpdates() {
-        logger.info("Checking for updates...");
-
-        try {
-            var connection = new URL("https://api.github.com/repos/kyngs/LibreLogin/releases").openConnection();
-
-            connection.setRequestProperty("User-Agent", "LibreLogin");
-
-            var in = connection.getInputStream();
-
-            var root = GSON.fromJson(new InputStreamReader(in), JsonArray.class);
-
-            in.close(); //Not the safest way, but a slight leak isn't a big deal
-
-            List<Release> behind = new ArrayList<>();
-            SemanticVersion latest = null;
-
-            for (JsonElement raw : root) {
-                var release = raw.getAsJsonObject();
-
-                var version = SemanticVersion.parse(release.get("tag_name").getAsString());
-
-                if (latest == null) latest = version;
-
-                var shouldBreak = switch (this.version.compare(version)) {
-                    case 0, 1 -> true;
-                    default -> {
-                        behind.add(new Release(version, release.get("name").getAsString()));
-                        yield false;
-                    }
-                };
-
-                if (shouldBreak) {
-                    break;
-                }
-            }
-
-            if (behind.isEmpty()) {
-                logger.info("You are running the latest version of LibreLogin");
-            } else {
-                Collections.reverse(behind);
-                logger.warn("!! YOU ARE RUNNING AN OUTDATED VERSION OF LIBRELOGIN !!");
-                logger.info("You are running version %s, the latest version is %s. You are running %s versions behind. Newer versions:".formatted(getVersion(), latest, behind.size()));
-                for (Release release : behind) {
-                    logger.info("- %s".formatted(release.name()));
-                }
-                logger.warn("!! PLEASE UPDATE TO THE LATEST VERSION !!");
-            }
-        } catch (Exception e) {
-            logger.warn("Failed to check for updates", e);
-        }
-    }
-
     public UUID generateNewUUID(String name, @Nullable UUID premiumID) {
         return switch (configuration.getNewUUIDCreator()) {
             case RANDOM -> UUID.randomUUID();
