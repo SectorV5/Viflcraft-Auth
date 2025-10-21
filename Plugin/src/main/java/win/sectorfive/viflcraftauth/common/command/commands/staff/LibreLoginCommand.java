@@ -455,4 +455,82 @@ public class LibreLoginCommand<P> extends StaffCommand<P> {
         });
     }
 
+    @Subcommand("reset")
+    @CommandPermission("viflcraftauth.admin.reset")
+    @Syntax("{@@syntax.reset}")
+    @CommandCompletion("%autocomplete.reset")
+    @Description("Generate a temporary RESET password for a user")
+    public CompletionStage<Void> onReset(Audience audience, String name) {
+        return runAsync(() -> {
+            var user = getUserOtherWiseInform(name);
+            
+            if (!user.isRegistered()) {
+                throw new InvalidCommandArgument(getMessage("error-not-registered"));
+            }
+
+            // Generate a random password with RESET: prefix
+            var randomPassword = generateRandomPassword();
+            var resetPassword = "RESET:" + randomPassword;
+            
+            // Hash and set the new password
+            var hashedPassword = plugin.getDefaultCryptoProvider().createHash(resetPassword);
+            if (hashedPassword == null) {
+                throw new InvalidCommandArgument(getMessage("error-password-too-long"));
+            }
+            
+            var old = user.getHashedPassword();
+            user.setHashedPassword(hashedPassword);
+            getDatabaseProvider().updateUser(user);
+            
+            // Send the reset password to the admin
+            audience.sendMessage(getMessage("info-reset-password-generated",
+                    "%username%", name,
+                    "%password%", resetPassword
+            ));
+            
+            plugin.getEventProvider().unsafeFire(plugin.getEventTypes().passwordChange, new AuthenticPasswordChangeEvent<>(user, null, plugin, old));
+        });
+    }
+
+    @Subcommand("set")
+    @CommandPermission("viflcraftauth.admin.setpassword")
+    @Syntax("{@@syntax.set}")
+    @CommandCompletion("%autocomplete.set")
+    @Description("Force set a user's password (bypasses requirements)")
+    public CompletionStage<Void> onSet(Audience audience, String name, @Single String password) {
+        return runAsync(() -> {
+            var user = getUserOtherWiseInform(name);
+            
+            if (!user.isRegistered()) {
+                throw new InvalidCommandArgument(getMessage("error-not-registered"));
+            }
+
+            // Bypass password validation for admin command
+            var hashedPassword = plugin.getDefaultCryptoProvider().createHash(password);
+            if (hashedPassword == null) {
+                throw new InvalidCommandArgument(getMessage("error-password-too-long"));
+            }
+            
+            var old = user.getHashedPassword();
+            user.setHashedPassword(hashedPassword);
+            getDatabaseProvider().updateUser(user);
+            
+            audience.sendMessage(getMessage("info-password-set",
+                    "%username%", name
+            ));
+            
+            plugin.getEventProvider().unsafeFire(plugin.getEventTypes().passwordChange, new AuthenticPasswordChangeEvent<>(user, null, plugin, old));
+        });
+    }
+
+    private String generateRandomPassword() {
+        var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+        var random = new java.util.Random();
+        var password = new StringBuilder(12);
+        for (int i = 0; i < 12; i++) {
+            password.append(chars.charAt(random.nextInt(chars.length())));
+        }
+        return password.toString();
+    }
+
 }
