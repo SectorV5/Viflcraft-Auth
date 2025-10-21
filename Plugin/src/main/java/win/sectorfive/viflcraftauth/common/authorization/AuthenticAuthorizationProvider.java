@@ -15,7 +15,7 @@ import win.sectorfive.viflcraftauth.api.authorization.AuthorizationProvider;
 import win.sectorfive.viflcraftauth.api.database.User;
 import win.sectorfive.viflcraftauth.api.event.events.AuthenticatedEvent;
 import win.sectorfive.viflcraftauth.common.AuthenticHandler;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.config.ConfigurationKeys;
 import win.sectorfive.viflcraftauth.common.event.events.AuthenticAuthenticatedEvent;
 
@@ -32,7 +32,7 @@ public class AuthenticAuthorizationProvider<P, S> extends AuthenticHandler<P, S>
 
     private final Map<P, Boolean> unAuthorized;
 
-    public AuthenticAuthorizationProvider(AuthenticLibreLogin<P, S> plugin) {
+    public AuthenticAuthorizationProvider(AuthenticViflcraftAuth<P, S> plugin) {
         super(plugin);
         unAuthorized = new ConcurrentHashMap<>();
 

@@ -11,7 +11,7 @@ import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.spongepowered.configurate.CommentedConfigurationNode;
 import win.sectorfive.viflcraftauth.api.BiHolder;
-import win.sectorfive.viflcraftauth.api.LibreLoginPlugin;
+import win.sectorfive.viflcraftauth.api.ViflcraftAuthPlugin;
 import win.sectorfive.viflcraftauth.api.Logger;
 import win.sectorfive.viflcraftauth.api.configuration.CorruptedConfigurationException;
 import win.sectorfive.viflcraftauth.api.configuration.Messages;
@@ -66,7 +66,7 @@ public class HoconMessages implements Messages {
     }
 
     @Override
-    public void reload(LibreLoginPlugin<?, ?> plugin) throws IOException, CorruptedConfigurationException {
+    public void reload(ViflcraftAuthPlugin<?, ?> plugin) throws IOException, CorruptedConfigurationException {
         var adept = new ConfigurateConfiguration(
                 plugin.getDataFolder(),
                 "messages.conf",

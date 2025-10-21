@@ -13,7 +13,7 @@ import win.sectorfive.viflcraftauth.api.premium.PremiumException;
 import win.sectorfive.viflcraftauth.api.premium.PremiumProvider;
 import win.sectorfive.viflcraftauth.api.premium.PremiumUser;
 import win.sectorfive.viflcraftauth.api.util.ThrowableFunction;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.util.GeneralUtil;
 
 import java.io.IOException;
@@ -30,9 +30,9 @@ public class AuthenticPremiumProvider implements PremiumProvider {
 
     private final Cache<String, PremiumUser> userCache;
     private final List<ThrowableFunction<String, PremiumUser, PremiumException>> fetchers;
-    private final AuthenticLibreLogin<?, ?> plugin;
+    private final AuthenticViflcraftAuth<?, ?> plugin;
 
-    public AuthenticPremiumProvider(AuthenticLibreLogin<?, ?> plugin) {
+    public AuthenticPremiumProvider(AuthenticViflcraftAuth<?, ?> plugin) {
         this.plugin = plugin;
         userCache = Caffeine.newBuilder()
                 .expireAfterWrite(10, TimeUnit.MINUTES)
@@ -95,7 +95,7 @@ public class AuthenticPremiumProvider implements PremiumProvider {
 
             switch (connection.getResponseCode()) {
                 case 200 -> {
-                    var data = AuthenticLibreLogin.GSON.fromJson(new InputStreamReader(connection.getInputStream()), JsonObject.class);
+                    var data = AuthenticViflcraftAuth.GSON.fromJson(new InputStreamReader(connection.getInputStream()), JsonObject.class);
 
                     var uuid = data.get("uuid");
                     var username = data.get("username").getAsString();
@@ -124,7 +124,7 @@ public class AuthenticPremiumProvider implements PremiumProvider {
 
             switch (connection.getResponseCode()) {
                 case 200 -> {
-                    var data = AuthenticLibreLogin.GSON.fromJson(new InputStreamReader(connection.getInputStream()), JsonObject.class);
+                    var data = AuthenticViflcraftAuth.GSON.fromJson(new InputStreamReader(connection.getInputStream()), JsonObject.class);
 
                     var id = data.get("data").getAsJsonObject().get("player").getAsJsonObject().get("id").getAsString();
                     var username = data.get("data").getAsJsonObject().get("player").getAsJsonObject().get("username").getAsString();
@@ -157,7 +157,7 @@ public class AuthenticPremiumProvider implements PremiumProvider {
 
             switch (connection.getResponseCode()) {
                 case 200 -> {
-                    var data = AuthenticLibreLogin.GSON.fromJson(new InputStreamReader(connection.getInputStream()), JsonObject.class);
+                    var data = AuthenticViflcraftAuth.GSON.fromJson(new InputStreamReader(connection.getInputStream()), JsonObject.class);
 
                     var rawId = data.get("id");
                     if (rawId == null || rawId.isJsonNull()) {
@@ -207,7 +207,7 @@ public class AuthenticPremiumProvider implements PremiumProvider {
                         throw new PremiumException(PremiumException.Issue.THROTTLED, GeneralUtil.readInput(connection.getErrorStream()));
                 case 204, 404 -> null;
                 case 200 -> {
-                    var data = AuthenticLibreLogin.GSON.fromJson(new InputStreamReader(connection.getInputStream()), JsonObject.class);
+                    var data = AuthenticViflcraftAuth.GSON.fromJson(new InputStreamReader(connection.getInputStream()), JsonObject.class);
 
                     var id = data.get("id").getAsString();
                     var demo = data.get("demo");
@@ -247,7 +247,7 @@ public class AuthenticPremiumProvider implements PremiumProvider {
                         throw new PremiumException(PremiumException.Issue.THROTTLED, GeneralUtil.readInput(connection.getErrorStream()));
                 case 204, 404 -> null;
                 case 200 -> {
-                    var data = AuthenticLibreLogin.GSON.fromJson(new InputStreamReader(connection.getInputStream()), JsonObject.class);
+                    var data = AuthenticViflcraftAuth.GSON.fromJson(new InputStreamReader(connection.getInputStream()), JsonObject.class);
 
                     var name = data.get("name").getAsString();
 

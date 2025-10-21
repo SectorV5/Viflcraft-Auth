@@ -7,7 +7,7 @@
 package win.sectorfive.viflcraftauth.common.database.provider;
 
 import win.sectorfive.viflcraftauth.api.database.connector.MySQLDatabaseConnector;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.database.connector.AuthenticMySQLDatabaseConnector;
 
 import java.sql.Connection;
@@ -15,8 +15,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LibreLoginMySQLDatabaseProvider extends LibreLoginSQLDatabaseProvider {
-    public LibreLoginMySQLDatabaseProvider(MySQLDatabaseConnector connector, AuthenticLibreLogin<?, ?> plugin) {
+public class ViflcraftAuthMySQLDatabaseProvider extends ViflcraftAuthSQLDatabaseProvider {
+    public ViflcraftAuthMySQLDatabaseProvider(MySQLDatabaseConnector connector, AuthenticViflcraftAuth<?, ?> plugin) {
         super(connector, plugin);
     }
 

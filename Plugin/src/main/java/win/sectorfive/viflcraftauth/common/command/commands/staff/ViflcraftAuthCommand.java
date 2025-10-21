@@ -13,7 +13,7 @@ import net.kyori.adventure.audience.Audience;
 import win.sectorfive.viflcraftauth.api.configuration.CorruptedConfigurationException;
 import win.sectorfive.viflcraftauth.api.database.User;
 import win.sectorfive.viflcraftauth.api.event.events.AuthenticatedEvent;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.command.InvalidCommandArgument;
 import win.sectorfive.viflcraftauth.common.database.AuthenticUser;
 import win.sectorfive.viflcraftauth.common.event.events.AuthenticPasswordChangeEvent;
@@ -30,13 +30,13 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.CompletionStage;
 
-import static win.sectorfive.viflcraftauth.common.AuthenticLibreLogin.DATE_TIME_FORMATTER;
-import static win.sectorfive.viflcraftauth.common.AuthenticLibreLogin.GSON;
+import static win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth.DATE_TIME_FORMATTER;
+import static win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth.GSON;
 
 @CommandAlias("viflcraftauth|vauth|librel|librelogin")
-public class LibreLoginCommand<P> extends StaffCommand<P> {
+public class ViflcraftAuthCommand<P> extends StaffCommand<P> {
 
-    public LibreLoginCommand(AuthenticLibreLogin<P, ?> plugin) {
+    public ViflcraftAuthCommand(AuthenticViflcraftAuth<P, ?> plugin) {
         super(plugin);
     }
 
@@ -207,7 +207,7 @@ public class LibreLoginCommand<P> extends StaffCommand<P> {
         });
     }
 
-    public static <P> void enablePremium(P player, User user, AuthenticLibreLogin<P, ?> plugin, boolean onlyValid) {
+    public static <P> void enablePremium(P player, User user, AuthenticViflcraftAuth<P, ?> plugin, boolean onlyValid) {
         var id = plugin.getUserOrThrowICA(user.getLastNickname());
 
         if (onlyValid && id != null && !id.reliable()) {

@@ -7,7 +7,7 @@
 package win.sectorfive.viflcraftauth.common.event.events;
 
 import org.jetbrains.annotations.Nullable;
-import win.sectorfive.viflcraftauth.api.LibreLoginPlugin;
+import win.sectorfive.viflcraftauth.api.ViflcraftAuthPlugin;
 import win.sectorfive.viflcraftauth.api.crypto.HashedPassword;
 import win.sectorfive.viflcraftauth.api.database.User;
 import win.sectorfive.viflcraftauth.api.event.events.PasswordChangeEvent;
@@ -16,7 +16,7 @@ import win.sectorfive.viflcraftauth.common.event.AuthenticPlayerBasedEvent;
 public class AuthenticPasswordChangeEvent<P, S> extends AuthenticPlayerBasedEvent<P, S> implements PasswordChangeEvent<P, S> {
     private final HashedPassword oldPassword;
 
-    public AuthenticPasswordChangeEvent(@Nullable User user, @Nullable P player, LibreLoginPlugin<P, S> plugin, HashedPassword oldPassword) {
+    public AuthenticPasswordChangeEvent(@Nullable User user, @Nullable P player, ViflcraftAuthPlugin<P, S> plugin, HashedPassword oldPassword) {
         super(user, player, plugin);
         this.oldPassword = oldPassword;
     }

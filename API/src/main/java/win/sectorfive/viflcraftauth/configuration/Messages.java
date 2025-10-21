@@ -7,7 +7,7 @@
 package win.sectorfive.viflcraftauth.api.configuration;
 
 import net.kyori.adventure.text.TextComponent;
-import win.sectorfive.viflcraftauth.api.LibreLoginPlugin;
+import win.sectorfive.viflcraftauth.api.ViflcraftAuthPlugin;
 
 import java.io.IOException;
 
@@ -34,6 +34,6 @@ public interface Messages {
      * @throws IOException                     If an I/O error occurs.
      * @throws CorruptedConfigurationException If the configuration is corrupted.
      */
-    void reload(LibreLoginPlugin<?, ?> plugin) throws IOException, CorruptedConfigurationException;
+    void reload(ViflcraftAuthPlugin<?, ?> plugin) throws IOException, CorruptedConfigurationException;
 
 }

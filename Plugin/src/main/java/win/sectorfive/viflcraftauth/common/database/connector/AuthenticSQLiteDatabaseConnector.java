@@ -10,7 +10,7 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import win.sectorfive.viflcraftauth.api.database.connector.SQLiteDatabaseConnector;
 import win.sectorfive.viflcraftauth.api.util.ThrowableFunction;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.config.ConfigurateHelper;
 import win.sectorfive.viflcraftauth.common.config.key.ConfigurationKey;
 
@@ -23,7 +23,7 @@ public class AuthenticSQLiteDatabaseConnector extends AuthenticDatabaseConnector
     private final HikariConfig hikariConfig;
     private HikariDataSource dataSource;
 
-    public AuthenticSQLiteDatabaseConnector(AuthenticLibreLogin<?, ?> plugin, String prefix) {
+    public AuthenticSQLiteDatabaseConnector(AuthenticViflcraftAuth<?, ?> plugin, String prefix) {
         super(plugin, prefix);
 
         this.hikariConfig = new HikariConfig();

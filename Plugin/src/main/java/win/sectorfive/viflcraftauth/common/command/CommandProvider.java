@@ -15,14 +15,14 @@ import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import win.sectorfive.viflcraftauth.api.database.User;
 import win.sectorfive.viflcraftauth.common.AuthenticHandler;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.command.commands.ChangePasswordCommand;
 import win.sectorfive.viflcraftauth.common.command.commands.authorization.LoginCommand;
 import win.sectorfive.viflcraftauth.common.command.commands.authorization.RegisterCommand;
 import win.sectorfive.viflcraftauth.common.command.commands.premium.PremiumConfirmCommand;
 import win.sectorfive.viflcraftauth.common.command.commands.premium.PremiumDisableCommand;
 import win.sectorfive.viflcraftauth.common.command.commands.premium.PremiumEnableCommand;
-import win.sectorfive.viflcraftauth.common.command.commands.staff.LibreLoginCommand;
+import win.sectorfive.viflcraftauth.common.command.commands.staff.ViflcraftAuthCommand;
 import win.sectorfive.viflcraftauth.common.util.RateLimiter;
 
 import java.util.HashMap;
@@ -37,7 +37,7 @@ public class CommandProvider<P, S> extends AuthenticHandler<P, S> {
     private final RateLimiter<UUID> limiter;
     private final Cache<UUID, Object> confirmCache;
 
-    public CommandProvider(AuthenticLibreLogin<P, S> plugin) {
+    public CommandProvider(AuthenticViflcraftAuth<P, S> plugin) {
         super(plugin);
 
         limiter = new RateLimiter<>(1, TimeUnit.SECONDS);
@@ -99,7 +99,7 @@ public class CommandProvider<P, S> extends AuthenticHandler<P, S> {
         manager.registerCommand(new PremiumConfirmCommand<>(plugin));
         manager.registerCommand(new PremiumDisableCommand<>(plugin));
         manager.registerCommand(new ChangePasswordCommand<>(plugin));
-        manager.registerCommand(new LibreLoginCommand<>(plugin));
+        manager.registerCommand(new ViflcraftAuthCommand<>(plugin));
 
     }
 
@@ -113,7 +113,7 @@ public class CommandProvider<P, S> extends AuthenticHandler<P, S> {
 
         audience.sendMessage(plugin.getMessages().getMessage("info-enabling"));
 
-        LibreLoginCommand.enablePremium(player, user, plugin, true);
+        ViflcraftAuthCommand.enablePremium(player, user, plugin, true);
 
         plugin.getDatabaseProvider().updateUser(user);
 

@@ -7,7 +7,7 @@
 package win.sectorfive.viflcraftauth.common.event.events;
 
 import org.jetbrains.annotations.Nullable;
-import win.sectorfive.viflcraftauth.api.LibreLoginPlugin;
+import win.sectorfive.viflcraftauth.api.ViflcraftAuthPlugin;
 import win.sectorfive.viflcraftauth.api.database.User;
 import win.sectorfive.viflcraftauth.api.event.events.LobbyServerChooseEvent;
 import win.sectorfive.viflcraftauth.common.event.AuthenticServerChooseEvent;
@@ -17,7 +17,7 @@ public class AuthenticLobbyServerChooseEvent<P, S> extends AuthenticServerChoose
     private final Boolean fallback;
     private boolean cancelled = false;
 
-    public AuthenticLobbyServerChooseEvent(@Nullable User user, P player, LibreLoginPlugin<P, S> plugin, Boolean fallback) {
+    public AuthenticLobbyServerChooseEvent(@Nullable User user, P player, ViflcraftAuthPlugin<P, S> plugin, Boolean fallback) {
         super(user, player, plugin);
 
         this.fallback = fallback;

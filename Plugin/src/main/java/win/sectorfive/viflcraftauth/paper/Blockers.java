@@ -33,7 +33,7 @@ public class Blockers implements Listener {
     private final HoconPluginConfiguration configuration;
     private final ServerHandler<Player, World> serverHandler;
 
-    public Blockers(PaperLibreLogin plugin) {
+    public Blockers(PaperViflcraftAuth plugin) {
         this.authorizationProvider = plugin.getAuthorizationProvider();
         this.configuration = plugin.getConfiguration();
         this.serverHandler = plugin.getServerHandler();

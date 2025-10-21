@@ -10,7 +10,7 @@ import win.sectorfive.viflcraftauth.api.event.Event;
 import win.sectorfive.viflcraftauth.api.event.EventProvider;
 import win.sectorfive.viflcraftauth.api.event.EventType;
 import win.sectorfive.viflcraftauth.common.AuthenticHandler;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 
 import java.util.HashSet;
 import java.util.Map;
@@ -22,7 +22,7 @@ public class AuthenticEventProvider<P, S> extends AuthenticHandler<P, S> impleme
 
     private final Map<EventType<P, S, ?>, Set<Consumer<Event<P, S>>>> listeners;
 
-    public AuthenticEventProvider(AuthenticLibreLogin<P, S> plugin) {
+    public AuthenticEventProvider(AuthenticViflcraftAuth<P, S> plugin) {
         super(plugin);
         this.listeners = new ConcurrentHashMap<>();
     }

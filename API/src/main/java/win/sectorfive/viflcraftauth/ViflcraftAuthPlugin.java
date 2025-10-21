@@ -34,7 +34,7 @@ import javax.annotation.Nullable;
  * @param <P> The type of the player
  * @param <S> The type of the server
  */
-public interface LibreLoginPlugin<P, S> {
+public interface ViflcraftAuthPlugin<P, S> {
 
     /**
      * Gets the current premium provider.

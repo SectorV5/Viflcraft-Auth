@@ -11,13 +11,13 @@ import net.luckperms.api.context.ContextConsumer;
 import net.luckperms.api.context.ContextSet;
 import net.luckperms.api.context.ImmutableContextSet;
 import org.checkerframework.checker.nullness.qual.NonNull;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 
 public class AuthorizedContext<P> implements ContextCalculator<P> {
 
-    private final AuthenticLibreLogin<P, ?> plugin;
+    private final AuthenticViflcraftAuth<P, ?> plugin;
 
-    public AuthorizedContext(AuthenticLibreLogin<P, ?> plugin) {
+    public AuthorizedContext(AuthenticViflcraftAuth<P, ?> plugin) {
         this.plugin = plugin;
     }
 

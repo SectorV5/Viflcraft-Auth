@@ -8,11 +8,11 @@ package win.sectorfive.viflcraftauth.common.image;
 
 import win.sectorfive.viflcraftauth.api.image.ImageProjector;
 import win.sectorfive.viflcraftauth.common.AuthenticHandler;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 
 public abstract class AuthenticImageProjector<P, S> extends AuthenticHandler<P, S> implements ImageProjector<P> {
 
-    public AuthenticImageProjector(AuthenticLibreLogin<P, S> plugin) {
+    public AuthenticImageProjector(AuthenticViflcraftAuth<P, S> plugin) {
         super(plugin);
     }
 

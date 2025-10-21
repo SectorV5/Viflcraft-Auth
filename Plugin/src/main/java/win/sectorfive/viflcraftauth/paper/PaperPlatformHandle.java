@@ -22,9 +22,9 @@ import java.util.concurrent.CompletableFuture;
 
 public class PaperPlatformHandle implements PlatformHandle<Player, World> {
 
-    private final PaperLibreLogin plugin;
+    private final PaperViflcraftAuth plugin;
 
-    public PaperPlatformHandle(PaperLibreLogin plugin) {
+    public PaperPlatformHandle(PaperViflcraftAuth plugin) {
         this.plugin = plugin;
     }
 

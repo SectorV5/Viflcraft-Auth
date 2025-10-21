@@ -9,14 +9,14 @@ package win.sectorfive.viflcraftauth.common.command.commands.authorization;
 import co.aikar.commands.annotation.*;
 import net.kyori.adventure.audience.Audience;
 import win.sectorfive.viflcraftauth.api.event.events.AuthenticatedEvent;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.command.InvalidCommandArgument;
 
 import java.util.concurrent.CompletionStage;
 
 @CommandAlias("register|reg")
 public class RegisterCommand<P> extends AuthorizationCommand<P> {
-    public RegisterCommand(AuthenticLibreLogin<P, ?> premium) {
+    public RegisterCommand(AuthenticViflcraftAuth<P, ?> premium) {
         super(premium);
     }
 

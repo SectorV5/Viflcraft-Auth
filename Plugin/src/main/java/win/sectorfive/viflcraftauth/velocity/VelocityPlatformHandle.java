@@ -21,9 +21,9 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 public class VelocityPlatformHandle implements PlatformHandle<Player, RegisteredServer> {
-    private final VelocityLibreLogin plugin;
+    private final VelocityViflcraftAuth plugin;
 
-    public VelocityPlatformHandle(VelocityLibreLogin plugin) {
+    public VelocityPlatformHandle(VelocityViflcraftAuth plugin) {
         this.plugin = plugin;
     }
 

@@ -10,7 +10,7 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import win.sectorfive.viflcraftauth.api.database.connector.PostgreSQLDatabaseConnector;
 import win.sectorfive.viflcraftauth.api.util.ThrowableFunction;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.config.ConfigurateHelper;
 import win.sectorfive.viflcraftauth.common.config.key.ConfigurationKey;
 
@@ -23,7 +23,7 @@ public class AuthenticPostgreSQLDatabaseConnector extends AuthenticDatabaseConne
     private final HikariConfig hikariConfig;
     private HikariDataSource dataSource;
 
-    public AuthenticPostgreSQLDatabaseConnector(AuthenticLibreLogin<?, ?> plugin, String prefix) {
+    public AuthenticPostgreSQLDatabaseConnector(AuthenticViflcraftAuth<?, ?> plugin, String prefix) {
         super(plugin, prefix);
 
         this.hikariConfig = new HikariConfig();

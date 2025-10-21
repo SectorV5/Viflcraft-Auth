@@ -10,11 +10,11 @@ import net.byteflux.libby.BungeeLibraryManager;
 import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Plugin;
-import win.sectorfive.viflcraftauth.api.provider.LibreLoginProvider;
+import win.sectorfive.viflcraftauth.api.provider.ViflcraftAuthProvider;
 
-public class BungeeCordBootstrap extends Plugin implements LibreLoginProvider<ProxiedPlayer, ServerInfo> {
+public class BungeeCordBootstrap extends Plugin implements ViflcraftAuthProvider<ProxiedPlayer, ServerInfo> {
 
-    private BungeeCordLibreLogin libreLogin;
+    private BungeeCordViflcraftAuth libreLogin;
 
     @Override
     public void onLoad() {
@@ -24,7 +24,7 @@ public class BungeeCordBootstrap extends Plugin implements LibreLoginProvider<Pr
 
         libraryManager.configureFromJSON();
 
-        libreLogin = new BungeeCordLibreLogin(this);
+        libreLogin = new BungeeCordViflcraftAuth(this);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class BungeeCordBootstrap extends Plugin implements LibreLoginProvider<Pr
     }
 
     @Override
-    public BungeeCordLibreLogin getLibreLogin() {
+    public BungeeCordViflcraftAuth getLibreLogin() {
         return libreLogin;
     }
 

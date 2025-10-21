@@ -10,7 +10,7 @@ import org.jetbrains.annotations.Nullable;
 import win.sectorfive.viflcraftauth.api.crypto.HashedPassword;
 import win.sectorfive.viflcraftauth.api.database.User;
 import win.sectorfive.viflcraftauth.api.database.connector.SQLDatabaseConnector;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.database.AuthenticDatabaseProvider;
 import win.sectorfive.viflcraftauth.common.database.AuthenticUser;
 
@@ -23,9 +23,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
-public abstract class LibreLoginSQLDatabaseProvider extends AuthenticDatabaseProvider<SQLDatabaseConnector> {
+public abstract class ViflcraftAuthSQLDatabaseProvider extends AuthenticDatabaseProvider<SQLDatabaseConnector> {
 
-    public LibreLoginSQLDatabaseProvider(SQLDatabaseConnector connector, AuthenticLibreLogin<?, ?> plugin) {
+    public ViflcraftAuthSQLDatabaseProvider(SQLDatabaseConnector connector, AuthenticViflcraftAuth<?, ?> plugin) {
         super(connector, plugin);
     }
 

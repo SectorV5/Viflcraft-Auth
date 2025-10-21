@@ -20,8 +20,8 @@ import com.velocitypowered.api.proxy.ProxyServer;
 import com.velocitypowered.api.proxy.server.RegisteredServer;
 import net.byteflux.libby.VelocityLibraryManager;
 import org.slf4j.Logger;
-import win.sectorfive.viflcraftauth.api.LibreLoginPlugin;
-import win.sectorfive.viflcraftauth.api.provider.LibreLoginProvider;
+import win.sectorfive.viflcraftauth.api.ViflcraftAuthPlugin;
+import win.sectorfive.viflcraftauth.api.provider.ViflcraftAuthProvider;
 
 import java.nio.file.Path;
 import java.util.Optional;
@@ -41,10 +41,10 @@ import java.util.concurrent.Executors;
                 @Dependency(id = "nanolimbovelocity", optional = true)
         }
 )
-public class VelocityBootstrap implements LibreLoginProvider<Player, RegisteredServer> {
+public class VelocityBootstrap implements ViflcraftAuthProvider<Player, RegisteredServer> {
 
     ProxyServer server;
-    private final VelocityLibreLogin libreLogin;
+    private final VelocityViflcraftAuth libreLogin;
 
     @Inject
     public VelocityBootstrap(ProxyServer server, Injector injector, Logger logger, PluginContainer container) {
@@ -75,7 +75,7 @@ public class VelocityBootstrap implements LibreLoginProvider<Player, RegisteredS
 
         libraryManager.configureFromJSON();
 
-        libreLogin = new VelocityLibreLogin(this);
+        libreLogin = new VelocityViflcraftAuth(this);
         injector.injectMembers(libreLogin);
     }
 
@@ -88,7 +88,7 @@ public class VelocityBootstrap implements LibreLoginProvider<Player, RegisteredS
     }
 
     @Override
-    public LibreLoginPlugin<Player, RegisteredServer> getLibreLogin() {
+    public ViflcraftAuthPlugin<Player, RegisteredServer> getLibreLogin() {
         return libreLogin;
     }
 

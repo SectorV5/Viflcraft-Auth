@@ -27,7 +27,7 @@ import win.sectorfive.viflcraftauth.api.database.User;
 import win.sectorfive.viflcraftauth.api.event.exception.EventCancelledException;
 import win.sectorfive.viflcraftauth.api.integration.LimboIntegration;
 import win.sectorfive.viflcraftauth.bungeecord.integration.BungeeNanoLimboIntegration;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.config.ConfigurationKeys;
 import win.sectorfive.viflcraftauth.common.image.AuthenticImageProjector;
 import win.sectorfive.viflcraftauth.common.image.protocolize.ProtocolizeImageProjector;
@@ -40,7 +40,7 @@ import java.util.concurrent.TimeUnit;
 
 import static win.sectorfive.viflcraftauth.common.config.ConfigurationKeys.DEBUG;
 
-public class BungeeCordLibreLogin extends AuthenticLibreLogin<ProxiedPlayer, ServerInfo> {
+public class BungeeCordViflcraftAuth extends AuthenticViflcraftAuth<ProxiedPlayer, ServerInfo> {
 
     private final BungeeCordBootstrap bootstrap;
     private BungeeAudiences adventure;
@@ -50,7 +50,7 @@ public class BungeeCordLibreLogin extends AuthenticLibreLogin<ProxiedPlayer, Ser
     private LimboIntegration<ServerInfo> limboIntegration;
     private BungeeComponentSerializer serializer;
 
-    public BungeeCordLibreLogin(BungeeCordBootstrap bootstrap) {
+    public BungeeCordViflcraftAuth(BungeeCordBootstrap bootstrap) {
         this.bootstrap = bootstrap;
     }
 

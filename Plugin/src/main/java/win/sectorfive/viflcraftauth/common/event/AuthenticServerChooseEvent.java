@@ -7,7 +7,7 @@
 package win.sectorfive.viflcraftauth.common.event;
 
 import org.jetbrains.annotations.Nullable;
-import win.sectorfive.viflcraftauth.api.LibreLoginPlugin;
+import win.sectorfive.viflcraftauth.api.ViflcraftAuthPlugin;
 import win.sectorfive.viflcraftauth.api.database.User;
 import win.sectorfive.viflcraftauth.api.event.ServerChooseEvent;
 
@@ -15,7 +15,7 @@ public class AuthenticServerChooseEvent<P, S> extends AuthenticPlayerBasedEvent<
 
     private S server = null;
 
-    public AuthenticServerChooseEvent(@Nullable User user, P player, LibreLoginPlugin<P, S> plugin) {
+    public AuthenticServerChooseEvent(@Nullable User user, P player, ViflcraftAuthPlugin<P, S> plugin) {
         super(user, player, plugin);
     }
 

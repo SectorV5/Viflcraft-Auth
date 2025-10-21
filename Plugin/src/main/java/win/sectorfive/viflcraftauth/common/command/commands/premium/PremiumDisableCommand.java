@@ -9,7 +9,7 @@ package win.sectorfive.viflcraftauth.common.command.commands.premium;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.Default;
 import net.kyori.adventure.audience.Audience;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.event.events.AuthenticPremiumLoginSwitchEvent;
 
 import java.util.concurrent.CompletionStage;
@@ -17,7 +17,7 @@ import java.util.concurrent.CompletionStage;
 @CommandAlias("cracked|manuallogin")
 public class PremiumDisableCommand<P> extends PremiumCommand<P> {
 
-    public PremiumDisableCommand(AuthenticLibreLogin<P, ?> premium) {
+    public PremiumDisableCommand(AuthenticViflcraftAuth<P, ?> premium) {
         super(premium);
     }
 

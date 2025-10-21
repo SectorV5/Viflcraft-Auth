@@ -15,7 +15,7 @@ import win.sectorfive.viflcraftauth.api.database.User;
 import win.sectorfive.viflcraftauth.api.event.exception.EventCancelledException;
 import win.sectorfive.viflcraftauth.api.server.ServerHandler;
 import win.sectorfive.viflcraftauth.api.server.ServerPing;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.config.ConfigurationKeys;
 import win.sectorfive.viflcraftauth.common.event.events.AuthenticLimboServerChooseEvent;
 import win.sectorfive.viflcraftauth.common.event.events.AuthenticLobbyServerChooseEvent;
@@ -30,11 +30,11 @@ import static win.sectorfive.viflcraftauth.common.config.ConfigurationKeys.*;
 public class AuthenticServerHandler<P, S> implements ServerHandler<P, S> {
 
     private final LoadingCache<S, Optional<ServerPing>> pingCache;
-    private final AuthenticLibreLogin<P, S> plugin;
+    private final AuthenticViflcraftAuth<P, S> plugin;
     private final Collection<S> limboServers;
     private final Multimap<String, S> lobbyServers;
 
-    public AuthenticServerHandler(AuthenticLibreLogin<P, S> plugin) {
+    public AuthenticServerHandler(AuthenticViflcraftAuth<P, S> plugin) {
         this.plugin = plugin;
 
         this.lobbyServers = HashMultimap.create();

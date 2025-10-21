@@ -17,7 +17,7 @@ import net.kyori.adventure.audience.Audience;
 import org.bstats.charts.CustomChart;
 import org.jetbrains.annotations.Nullable;
 import win.sectorfive.viflcraftauth.api.BiHolder;
-import win.sectorfive.viflcraftauth.api.LibreLoginPlugin;
+import win.sectorfive.viflcraftauth.api.ViflcraftAuthPlugin;
 import win.sectorfive.viflcraftauth.api.Logger;
 import win.sectorfive.viflcraftauth.api.PlatformHandle;
 import win.sectorfive.viflcraftauth.api.configuration.CorruptedConfigurationException;
@@ -50,9 +50,9 @@ import win.sectorfive.viflcraftauth.common.database.connector.AuthenticMySQLData
 import win.sectorfive.viflcraftauth.common.database.connector.AuthenticPostgreSQLDatabaseConnector;
 import win.sectorfive.viflcraftauth.common.database.connector.AuthenticSQLiteDatabaseConnector;
 import win.sectorfive.viflcraftauth.common.database.connector.DatabaseConnectorRegistration;
-import win.sectorfive.viflcraftauth.common.database.provider.LibreLoginMySQLDatabaseProvider;
-import win.sectorfive.viflcraftauth.common.database.provider.LibreLoginPostgreSQLDatabaseProvider;
-import win.sectorfive.viflcraftauth.common.database.provider.LibreLoginSQLiteDatabaseProvider;
+import win.sectorfive.viflcraftauth.common.database.provider.ViflcraftAuthMySQLDatabaseProvider;
+import win.sectorfive.viflcraftauth.common.database.provider.ViflcraftAuthPostgreSQLDatabaseProvider;
+import win.sectorfive.viflcraftauth.common.database.provider.ViflcraftAuthSQLiteDatabaseProvider;
 import win.sectorfive.viflcraftauth.common.event.AuthenticEventProvider;
 import win.sectorfive.viflcraftauth.common.image.AuthenticImageProjector;
 import win.sectorfive.viflcraftauth.common.integration.FloodgateIntegration;
@@ -81,7 +81,7 @@ import java.util.concurrent.ForkJoinPool;
 
 import static win.sectorfive.viflcraftauth.common.config.ConfigurationKeys.*;
 
-public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S> {
+public abstract class AuthenticViflcraftAuth<P, S> implements ViflcraftAuthPlugin<P, S> {
 
     public static final Gson GSON = new Gson();
     public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd. MM. yyyy HH:mm");
@@ -113,7 +113,7 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
     // Email handler removed - email functionality not supported
     private LoginTryListener<P, S> loginTryListener;
 
-    protected AuthenticLibreLogin() {
+    protected AuthenticViflcraftAuth() {
         cryptoProviders = new ConcurrentHashMap<>();
         readProviders = new ConcurrentHashMap<>();
         databaseConnectors = new ConcurrentHashMap<>();
@@ -495,17 +495,17 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
                 PostgreSQLDatabaseConnector.class);
 
         registerReadProvider(new ReadDatabaseProviderRegistration<>(
-                connector -> new LibreLoginMySQLDatabaseProvider(connector, this),
+                connector -> new ViflcraftAuthMySQLDatabaseProvider(connector, this),
                 "librelogin-mysql",
                 MySQLDatabaseConnector.class
         ));
         registerReadProvider(new ReadDatabaseProviderRegistration<>(
-                connector -> new LibreLoginSQLiteDatabaseProvider(connector, this),
+                connector -> new ViflcraftAuthSQLiteDatabaseProvider(connector, this),
                 "librelogin-sqlite",
                 SQLiteDatabaseConnector.class
         ));
         registerReadProvider(new ReadDatabaseProviderRegistration<>(
-                connector -> new LibreLoginPostgreSQLDatabaseProvider(connector, this),
+                connector -> new ViflcraftAuthPostgreSQLDatabaseProvider(connector, this),
                 "librelogin-postgresql",
                 PostgreSQLDatabaseConnector.class
         ));

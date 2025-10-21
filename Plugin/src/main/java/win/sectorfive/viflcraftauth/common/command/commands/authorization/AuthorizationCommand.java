@@ -6,13 +6,13 @@
 
 package win.sectorfive.viflcraftauth.common.command.commands.authorization;
 
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.command.Command;
 import win.sectorfive.viflcraftauth.common.command.InvalidCommandArgument;
 
 public class AuthorizationCommand<P> extends Command<P> {
 
-    public AuthorizationCommand(AuthenticLibreLogin<P, ?> premium) {
+    public AuthorizationCommand(AuthenticViflcraftAuth<P, ?> premium) {
         super(premium);
     }
 

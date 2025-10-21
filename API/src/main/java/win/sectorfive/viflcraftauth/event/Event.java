@@ -6,7 +6,7 @@
 
 package win.sectorfive.viflcraftauth.api.event;
 
-import win.sectorfive.viflcraftauth.api.LibreLoginPlugin;
+import win.sectorfive.viflcraftauth.api.ViflcraftAuthPlugin;
 import win.sectorfive.viflcraftauth.api.PlatformHandle;
 
 /**
@@ -21,7 +21,7 @@ public interface Event<P, S> {
      *
      * @return the plugin instance
      */
-    LibreLoginPlugin<P, S> getPlugin();
+    ViflcraftAuthPlugin<P, S> getPlugin();
 
     /**
      * Gets the platform handle

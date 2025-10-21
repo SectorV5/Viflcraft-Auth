@@ -8,14 +8,14 @@ package win.sectorfive.viflcraftauth.common.database;
 
 import win.sectorfive.viflcraftauth.api.database.ReadWriteDatabaseProvider;
 import win.sectorfive.viflcraftauth.api.database.connector.DatabaseConnector;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 
 public abstract class AuthenticDatabaseProvider<C extends DatabaseConnector<?, ?>> implements ReadWriteDatabaseProvider {
 
     protected final C connector;
-    protected final AuthenticLibreLogin<?, ?> plugin;
+    protected final AuthenticViflcraftAuth<?, ?> plugin;
 
-    protected AuthenticDatabaseProvider(C connector, AuthenticLibreLogin<?, ?> plugin) {
+    protected AuthenticDatabaseProvider(C connector, AuthenticViflcraftAuth<?, ?> plugin) {
         this.connector = connector;
         this.plugin = plugin;
     }

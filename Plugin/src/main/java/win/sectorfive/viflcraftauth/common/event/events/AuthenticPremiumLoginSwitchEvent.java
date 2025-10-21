@@ -7,13 +7,13 @@
 package win.sectorfive.viflcraftauth.common.event.events;
 
 import org.jetbrains.annotations.Nullable;
-import win.sectorfive.viflcraftauth.api.LibreLoginPlugin;
+import win.sectorfive.viflcraftauth.api.ViflcraftAuthPlugin;
 import win.sectorfive.viflcraftauth.api.database.User;
 import win.sectorfive.viflcraftauth.api.event.events.PremiumLoginSwitchEvent;
 import win.sectorfive.viflcraftauth.common.event.AuthenticPlayerBasedEvent;
 
 public class AuthenticPremiumLoginSwitchEvent<P, S> extends AuthenticPlayerBasedEvent<P, S> implements PremiumLoginSwitchEvent<P, S> {
-    public AuthenticPremiumLoginSwitchEvent(@Nullable User user, P player, LibreLoginPlugin<P, S> plugin) {
+    public AuthenticPremiumLoginSwitchEvent(@Nullable User user, P player, ViflcraftAuthPlugin<P, S> plugin) {
         super(user, player, plugin);
     }
 }

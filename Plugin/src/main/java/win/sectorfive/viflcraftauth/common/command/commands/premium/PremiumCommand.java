@@ -7,12 +7,12 @@
 package win.sectorfive.viflcraftauth.common.command.commands.premium;
 
 import win.sectorfive.viflcraftauth.api.database.User;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.command.InvalidCommandArgument;
 import win.sectorfive.viflcraftauth.common.command.commands.authorization.AuthorizationCommand;
 
 public class PremiumCommand<P> extends AuthorizationCommand<P> {
-    public PremiumCommand(AuthenticLibreLogin<P, ?> premium) {
+    public PremiumCommand(AuthenticViflcraftAuth<P, ?> premium) {
         super(premium);
     }
 

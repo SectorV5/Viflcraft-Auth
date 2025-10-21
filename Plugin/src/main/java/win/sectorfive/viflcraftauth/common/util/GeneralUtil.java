@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
 import win.sectorfive.viflcraftauth.api.Logger;
 import win.sectorfive.viflcraftauth.api.database.ReadDatabaseProvider;
 import win.sectorfive.viflcraftauth.api.database.connector.DatabaseConnector;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.command.InvalidCommandArgument;
 import win.sectorfive.viflcraftauth.common.config.ConfigurationKeys;
 import win.sectorfive.viflcraftauth.common.config.HoconPluginConfiguration;
@@ -102,14 +102,14 @@ public class GeneralUtil {
 
     // Data migration feature removed
     /*
-    public static void checkAndMigrate(HoconPluginConfiguration configuration, Logger logger, AuthenticLibreLogin<?, ?> plugin) {
+    public static void checkAndMigrate(HoconPluginConfiguration configuration, Logger logger, AuthenticViflcraftAuth<?, ?> plugin) {
         // Migration feature has been removed from Viflcraft Auth
     }
     */
 
     public static CompletionStage<Void> runAsync(Runnable runnable) {
         var future = new CompletableFuture<Void>();
-        AuthenticLibreLogin.EXECUTOR.submit(() -> {
+        AuthenticViflcraftAuth.EXECUTOR.submit(() -> {
             try {
                 runnable.run();
                 future.complete(null);

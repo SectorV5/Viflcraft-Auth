@@ -10,10 +10,10 @@ import win.sectorfive.viflcraftauth.api.PlatformHandle;
 
 public class AuthenticHandler<P, S> {
 
-    protected final AuthenticLibreLogin<P, S> plugin;
+    protected final AuthenticViflcraftAuth<P, S> plugin;
     protected final PlatformHandle<P, S> platformHandle;
 
-    public AuthenticHandler(AuthenticLibreLogin<P, S> plugin) {
+    public AuthenticHandler(AuthenticViflcraftAuth<P, S> plugin) {
         this.plugin = plugin;
         this.platformHandle = plugin.getPlatformHandle();
     }

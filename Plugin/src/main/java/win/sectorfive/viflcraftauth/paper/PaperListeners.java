@@ -32,7 +32,7 @@ import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.spigotmc.event.player.PlayerSpawnLocationEvent;
 import win.sectorfive.viflcraftauth.api.database.User;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.config.ConfigurationKeys;
 import win.sectorfive.viflcraftauth.common.config.MessageKeys;
 import win.sectorfive.viflcraftauth.common.listener.AuthenticListeners;
@@ -54,7 +54,7 @@ import javax.crypto.*;
 
 import static win.sectorfive.viflcraftauth.paper.protocol.ProtocolUtil.getServerVersion;
 
-public class PaperListeners extends AuthenticListeners<PaperLibreLogin, Player, World> implements Listener {
+public class PaperListeners extends AuthenticListeners<PaperViflcraftAuth, Player, World> implements Listener {
 
     private static final String ENCRYPTION_CLASS_NAME = "MinecraftEncryption";
     private static final Class<?> ENCRYPTION_CLASS;
@@ -79,7 +79,7 @@ public class PaperListeners extends AuthenticListeners<PaperLibreLogin, Player, 
     private final Cache<UUID, User> readOnlyUserCache;
     private final Cache<Player, Location> spawnLocationCache;
 
-    public PaperListeners(PaperLibreLogin plugin) {
+    public PaperListeners(PaperViflcraftAuth plugin) {
         super(plugin);
 
         floodgateHelper = this.plugin.floodgateEnabled() ? new FloodgateHelper() : null;
@@ -321,7 +321,7 @@ public class PaperListeners extends AuthenticListeners<PaperLibreLogin, Player, 
 
         var copy = event.clone();
 
-        AuthenticLibreLogin.EXECUTOR.execute(() -> {
+        AuthenticViflcraftAuth.EXECUTOR.execute(() -> {
             try {
                 asyncPacketReceive(copy);
             } finally {

@@ -7,16 +7,16 @@
 package win.sectorfive.viflcraftauth.common.database.connector;
 
 import win.sectorfive.viflcraftauth.api.database.connector.DatabaseConnector;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.config.key.ConfigurationKey;
 
 public abstract class AuthenticDatabaseConnector<E extends Exception, I> implements DatabaseConnector<E, I> {
 
-    protected final AuthenticLibreLogin<?, ?> plugin;
+    protected final AuthenticViflcraftAuth<?, ?> plugin;
     private final String prefix;
     protected boolean connected = true;
 
-    public AuthenticDatabaseConnector(AuthenticLibreLogin<?, ?> plugin, String prefix) {
+    public AuthenticDatabaseConnector(AuthenticViflcraftAuth<?, ?> plugin, String prefix) {
         this.plugin = plugin;
         this.prefix = prefix;
     }

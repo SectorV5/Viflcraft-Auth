@@ -10,7 +10,7 @@ import co.aikar.commands.annotation.*;
 import net.kyori.adventure.audience.Audience;
 import win.sectorfive.viflcraftauth.api.event.events.AuthenticatedEvent;
 import win.sectorfive.viflcraftauth.api.event.events.WrongPasswordEvent.AuthenticationSource;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.command.InvalidCommandArgument;
 import win.sectorfive.viflcraftauth.common.event.events.AuthenticWrongPasswordEvent;
 
@@ -19,7 +19,7 @@ import java.util.concurrent.CompletionStage;
 @CommandAlias("login|l|log")
 public class LoginCommand<P> extends AuthorizationCommand<P> {
 
-    public LoginCommand(AuthenticLibreLogin<P, ?> premium) {
+    public LoginCommand(AuthenticViflcraftAuth<P, ?> premium) {
         super(premium);
     }
 

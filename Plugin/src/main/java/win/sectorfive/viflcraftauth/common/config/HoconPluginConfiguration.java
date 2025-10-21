@@ -7,7 +7,7 @@
 package win.sectorfive.viflcraftauth.common.config;
 
 import win.sectorfive.viflcraftauth.api.BiHolder;
-import win.sectorfive.viflcraftauth.api.LibreLoginPlugin;
+import win.sectorfive.viflcraftauth.api.ViflcraftAuthPlugin;
 import win.sectorfive.viflcraftauth.api.Logger;
 import win.sectorfive.viflcraftauth.api.configuration.CorruptedConfigurationException;
 import win.sectorfive.viflcraftauth.common.config.key.ConfigurationKey;
@@ -36,7 +36,7 @@ public class HoconPluginConfiguration {
         return helper;
     }
 
-    public boolean reload(LibreLoginPlugin<?, ?> plugin) throws IOException, CorruptedConfigurationException {
+    public boolean reload(ViflcraftAuthPlugin<?, ?> plugin) throws IOException, CorruptedConfigurationException {
         var adept = new ConfigurateConfiguration(
                 plugin.getDataFolder(),
                 "config.conf",

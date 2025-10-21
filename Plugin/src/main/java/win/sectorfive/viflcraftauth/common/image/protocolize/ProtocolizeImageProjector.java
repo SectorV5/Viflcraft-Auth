@@ -14,7 +14,7 @@ import dev.simplix.protocolize.data.ItemType;
 import dev.simplix.protocolize.data.packets.HeldItemChange;
 import dev.simplix.protocolize.data.packets.SetSlot;
 import win.sectorfive.viflcraftauth.api.image.ImageProjector;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.image.AuthenticImageProjector;
 import win.sectorfive.viflcraftauth.common.image.protocolize.packet.MapDataPacket;
 
@@ -22,7 +22,7 @@ import java.awt.image.BufferedImage;
 
 public class ProtocolizeImageProjector<P, S> extends AuthenticImageProjector<P, S> implements ImageProjector<P> {
 
-    public ProtocolizeImageProjector(AuthenticLibreLogin<P, S> plugin) {
+    public ProtocolizeImageProjector(AuthenticViflcraftAuth<P, S> plugin) {
         super(plugin);
     }
 

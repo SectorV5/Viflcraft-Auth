@@ -15,11 +15,11 @@ import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import win.sectorfive.viflcraftauth.api.provider.LibreLoginProvider;
+import win.sectorfive.viflcraftauth.api.provider.ViflcraftAuthProvider;
 
-public class PaperBootstrap extends JavaPlugin implements LibreLoginProvider<Player, World> {
+public class PaperBootstrap extends JavaPlugin implements ViflcraftAuthProvider<Player, World> {
 
-    private PaperLibreLogin libreLogin;
+    private PaperViflcraftAuth libreLogin;
 
     @Override
     public @Nullable ChunkGenerator getDefaultWorldGenerator(@NotNull String worldName, @Nullable String id) {
@@ -62,7 +62,7 @@ public class PaperBootstrap extends JavaPlugin implements LibreLoginProvider<Pla
             stopServer();
         }
 
-        libreLogin = new PaperLibreLogin(this);
+        libreLogin = new PaperViflcraftAuth(this);
     }
 
     @Override
@@ -96,7 +96,7 @@ public class PaperBootstrap extends JavaPlugin implements LibreLoginProvider<Pla
     }
 
     @Override
-    public PaperLibreLogin getLibreLogin() {
+    public PaperViflcraftAuth getLibreLogin() {
         return libreLogin;
     }
 

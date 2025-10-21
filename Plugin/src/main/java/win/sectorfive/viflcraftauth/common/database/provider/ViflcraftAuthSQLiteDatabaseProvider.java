@@ -7,15 +7,15 @@
 package win.sectorfive.viflcraftauth.common.database.provider;
 
 import win.sectorfive.viflcraftauth.api.database.connector.SQLiteDatabaseConnector;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LibreLoginSQLiteDatabaseProvider extends LibreLoginSQLDatabaseProvider {
-    public LibreLoginSQLiteDatabaseProvider(SQLiteDatabaseConnector connector, AuthenticLibreLogin<?, ?> plugin) {
+public class ViflcraftAuthSQLiteDatabaseProvider extends ViflcraftAuthSQLDatabaseProvider {
+    public ViflcraftAuthSQLiteDatabaseProvider(SQLiteDatabaseConnector connector, AuthenticViflcraftAuth<?, ?> plugin) {
         super(connector, plugin);
     }
 

@@ -8,12 +8,12 @@ package win.sectorfive.viflcraftauth.common.command.commands.staff;
 
 import org.jetbrains.annotations.NotNull;
 import win.sectorfive.viflcraftauth.api.database.User;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.command.Command;
 import win.sectorfive.viflcraftauth.common.command.InvalidCommandArgument;
 
 public class StaffCommand<P> extends Command<P> {
-    public StaffCommand(AuthenticLibreLogin<P, ?> plugin) {
+    public StaffCommand(AuthenticViflcraftAuth<P, ?> plugin) {
         super(plugin);
     }
 

@@ -30,7 +30,7 @@ import java.lang.reflect.Field;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
-public class VelocityListeners extends AuthenticListeners<VelocityLibreLogin, Player, RegisteredServer> {
+public class VelocityListeners extends AuthenticListeners<VelocityViflcraftAuth, Player, RegisteredServer> {
 
     private static final AttributeKey<?> FLOODGATE_ATTR = AttributeKey.valueOf("floodgate-player");
     private static final Field INITIAL_MINECRAFT_CONNECTION;
@@ -74,7 +74,7 @@ public class VelocityListeners extends AuthenticListeners<VelocityLibreLogin, Pl
         }
     }
 
-    public VelocityListeners(VelocityLibreLogin plugin) {
+    public VelocityListeners(VelocityViflcraftAuth plugin) {
         super(plugin);
     }
 

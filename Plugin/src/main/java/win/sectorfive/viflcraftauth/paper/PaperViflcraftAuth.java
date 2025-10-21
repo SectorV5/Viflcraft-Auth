@@ -22,7 +22,7 @@ import org.bukkit.entity.Player;
 import win.sectorfive.viflcraftauth.api.Logger;
 import win.sectorfive.viflcraftauth.api.database.User;
 import win.sectorfive.viflcraftauth.api.event.exception.EventCancelledException;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.SLF4JLogger;
 import win.sectorfive.viflcraftauth.common.image.AuthenticImageProjector;
 import win.sectorfive.viflcraftauth.common.util.CancellableTask;
@@ -34,13 +34,13 @@ import java.util.UUID;
 
 import static win.sectorfive.viflcraftauth.common.config.ConfigurationKeys.DEBUG;
 
-public class PaperLibreLogin extends AuthenticLibreLogin<Player, World> {
+public class PaperViflcraftAuth extends AuthenticViflcraftAuth<Player, World> {
 
     private final PaperBootstrap bootstrap;
     private PaperListeners listeners;
     private boolean started;
 
-    public PaperLibreLogin(PaperBootstrap bootstrap) {
+    public PaperViflcraftAuth(PaperBootstrap bootstrap) {
         this.bootstrap = bootstrap;
         this.started = false;
 

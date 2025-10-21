@@ -8,7 +8,7 @@ package win.sectorfive.viflcraftauth.common.event.events;
 
 import org.jetbrains.annotations.Nullable;
 
-import win.sectorfive.viflcraftauth.api.LibreLoginPlugin;
+import win.sectorfive.viflcraftauth.api.ViflcraftAuthPlugin;
 import win.sectorfive.viflcraftauth.api.database.User;
 import win.sectorfive.viflcraftauth.api.event.events.WrongPasswordEvent;
 import win.sectorfive.viflcraftauth.common.event.AuthenticPlayerBasedEvent;
@@ -17,7 +17,7 @@ public class AuthenticWrongPasswordEvent<P, S> extends AuthenticPlayerBasedEvent
 
     private final AuthenticationSource source;
 
-    public AuthenticWrongPasswordEvent(@Nullable User user, P player, LibreLoginPlugin<P, S> plugin, AuthenticationSource source) {
+    public AuthenticWrongPasswordEvent(@Nullable User user, P player, ViflcraftAuthPlugin<P, S> plugin, AuthenticationSource source) {
         super(user, player, plugin);
         this.source = source;
     }

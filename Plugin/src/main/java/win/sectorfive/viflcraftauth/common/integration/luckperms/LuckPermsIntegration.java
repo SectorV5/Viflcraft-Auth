@@ -7,13 +7,13 @@
 package win.sectorfive.viflcraftauth.common.integration.luckperms;
 
 import net.luckperms.api.LuckPermsProvider;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 
 public class LuckPermsIntegration<P, S> {
 
     private final AuthorizedContext<P> authorizedContext;
 
-    public LuckPermsIntegration(AuthenticLibreLogin<P, S> plugin) {
+    public LuckPermsIntegration(AuthenticViflcraftAuth<P, S> plugin) {
         authorizedContext = new AuthorizedContext<>(plugin);
         var contextMgr = LuckPermsProvider.get().getContextManager();
         contextMgr.registerCalculator(authorizedContext);

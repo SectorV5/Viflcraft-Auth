@@ -23,9 +23,9 @@ public class Blockers implements Listener {
 
     private final AuthorizationProvider<ProxiedPlayer> authorizationProvider;
     private final HoconPluginConfiguration configuration;
-    private final BungeeCordLibreLogin plugin;
+    private final BungeeCordViflcraftAuth plugin;
 
-    public Blockers(BungeeCordLibreLogin plugin) {
+    public Blockers(BungeeCordViflcraftAuth plugin) {
         this.authorizationProvider = plugin.getAuthorizationProvider();
         this.configuration = plugin.getConfiguration();
         this.plugin = plugin;

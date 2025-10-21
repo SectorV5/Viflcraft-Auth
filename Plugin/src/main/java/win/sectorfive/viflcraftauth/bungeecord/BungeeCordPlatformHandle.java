@@ -21,9 +21,9 @@ import java.util.concurrent.CountDownLatch;
 
 public class BungeeCordPlatformHandle implements PlatformHandle<ProxiedPlayer, ServerInfo> {
 
-    private final BungeeCordLibreLogin plugin;
+    private final BungeeCordViflcraftAuth plugin;
 
-    public BungeeCordPlatformHandle(BungeeCordLibreLogin plugin) {
+    public BungeeCordPlatformHandle(BungeeCordViflcraftAuth plugin) {
         this.plugin = plugin;
     }
 

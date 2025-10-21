@@ -27,7 +27,7 @@ import win.sectorfive.viflcraftauth.api.PlatformHandle;
 import win.sectorfive.viflcraftauth.api.database.User;
 import win.sectorfive.viflcraftauth.api.event.exception.EventCancelledException;
 import win.sectorfive.viflcraftauth.api.integration.LimboIntegration;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.SLF4JLogger;
 import win.sectorfive.viflcraftauth.common.config.ConfigurationKeys;
 import win.sectorfive.viflcraftauth.common.image.AuthenticImageProjector;
@@ -43,7 +43,7 @@ import java.util.concurrent.TimeUnit;
 
 import static win.sectorfive.viflcraftauth.common.config.ConfigurationKeys.DEBUG;
 
-public class VelocityLibreLogin extends AuthenticLibreLogin<Player, RegisteredServer> {
+public class VelocityViflcraftAuth extends AuthenticViflcraftAuth<Player, RegisteredServer> {
 
     private final VelocityBootstrap bootstrap;
     @Inject
@@ -62,7 +62,7 @@ public class VelocityLibreLogin extends AuthenticLibreLogin<Player, RegisteredSe
     @Nullable
     private LimboIntegration<RegisteredServer> limboIntegration;
 
-    public VelocityLibreLogin(VelocityBootstrap bootstrap) {
+    public VelocityViflcraftAuth(VelocityBootstrap bootstrap) {
         this.bootstrap = bootstrap;
     }
 

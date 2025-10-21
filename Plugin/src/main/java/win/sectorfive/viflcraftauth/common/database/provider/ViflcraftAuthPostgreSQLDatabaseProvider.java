@@ -7,15 +7,15 @@
 package win.sectorfive.viflcraftauth.common.database.provider;
 
 import win.sectorfive.viflcraftauth.api.database.connector.PostgreSQLDatabaseConnector;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LibreLoginPostgreSQLDatabaseProvider extends LibreLoginSQLDatabaseProvider {
-    public LibreLoginPostgreSQLDatabaseProvider(PostgreSQLDatabaseConnector connector, AuthenticLibreLogin<?, ?> plugin) {
+public class ViflcraftAuthPostgreSQLDatabaseProvider extends ViflcraftAuthSQLDatabaseProvider {
+    public ViflcraftAuthPostgreSQLDatabaseProvider(PostgreSQLDatabaseConnector connector, AuthenticViflcraftAuth<?, ?> plugin) {
         super(connector, plugin);
     }
 

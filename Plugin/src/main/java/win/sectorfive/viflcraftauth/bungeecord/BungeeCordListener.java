@@ -24,9 +24,9 @@ import java.util.NoSuchElementException;
 import static net.md_5.bungee.event.EventPriority.HIGHEST;
 import static net.md_5.bungee.event.EventPriority.LOW;
 
-public class BungeeCordListener extends AuthenticListeners<BungeeCordLibreLogin, ProxiedPlayer, ServerInfo> implements Listener {
+public class BungeeCordListener extends AuthenticListeners<BungeeCordViflcraftAuth, ProxiedPlayer, ServerInfo> implements Listener {
 
-    public BungeeCordListener(BungeeCordLibreLogin plugin) {
+    public BungeeCordListener(BungeeCordViflcraftAuth plugin) {
         super(plugin);
     }
 

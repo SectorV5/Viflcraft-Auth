@@ -9,7 +9,7 @@ package win.sectorfive.viflcraftauth.common.command.commands;
 import co.aikar.commands.annotation.*;
 import net.kyori.adventure.audience.Audience;
 import win.sectorfive.viflcraftauth.api.event.events.WrongPasswordEvent.AuthenticationSource;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.command.Command;
 import win.sectorfive.viflcraftauth.common.command.InvalidCommandArgument;
 import win.sectorfive.viflcraftauth.common.event.events.AuthenticPasswordChangeEvent;
@@ -19,7 +19,7 @@ import java.util.concurrent.CompletionStage;
 
 @CommandAlias("changepassword|changepass|passwd|passch")
 public class ChangePasswordCommand<P> extends Command<P> {
-    public ChangePasswordCommand(AuthenticLibreLogin<P, ?> plugin) {
+    public ChangePasswordCommand(AuthenticViflcraftAuth<P, ?> plugin) {
         super(plugin);
     }
 

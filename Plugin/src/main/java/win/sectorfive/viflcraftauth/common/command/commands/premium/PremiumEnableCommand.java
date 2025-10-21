@@ -9,7 +9,7 @@ package win.sectorfive.viflcraftauth.common.command.commands.premium;
 import co.aikar.commands.annotation.*;
 import net.kyori.adventure.audience.Audience;
 import win.sectorfive.viflcraftauth.api.event.events.WrongPasswordEvent.AuthenticationSource;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.command.InvalidCommandArgument;
 import win.sectorfive.viflcraftauth.common.event.events.AuthenticWrongPasswordEvent;
 
@@ -19,7 +19,7 @@ import java.util.concurrent.CompletionStage;
 @CommandAlias("premium")
 public class PremiumEnableCommand<P> extends PremiumCommand<P> {
 
-    public PremiumEnableCommand(AuthenticLibreLogin<P, ?> plugin) {
+    public PremiumEnableCommand(AuthenticViflcraftAuth<P, ?> plugin) {
         super(plugin);
     }
 

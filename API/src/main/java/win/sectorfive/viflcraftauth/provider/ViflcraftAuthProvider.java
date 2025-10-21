@@ -6,7 +6,7 @@
 
 package win.sectorfive.viflcraftauth.api.provider;
 
-import win.sectorfive.viflcraftauth.api.LibreLoginPlugin;
+import win.sectorfive.viflcraftauth.api.ViflcraftAuthPlugin;
 
 /**
  * This class is used to obtain the instance of the plugin
@@ -14,13 +14,13 @@ import win.sectorfive.viflcraftauth.api.LibreLoginPlugin;
  * @param <P> The type of the player
  * @param <S> The type of the server
  */
-public interface LibreLoginProvider<P, S> {
+public interface ViflcraftAuthProvider<P, S> {
 
     /**
      * Gets the instance of the plugin
      *
      * @return the instance of the plugin
      */
-    LibreLoginPlugin<P, S> getLibreLogin();
+    ViflcraftAuthPlugin<P, S> getLibreLogin();
 
 }

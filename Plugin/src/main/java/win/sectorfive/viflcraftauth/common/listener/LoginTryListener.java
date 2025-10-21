@@ -14,15 +14,15 @@ import com.github.benmanes.caffeine.cache.Caffeine;
 import win.sectorfive.viflcraftauth.api.event.events.AuthenticatedEvent;
 import win.sectorfive.viflcraftauth.api.event.events.WrongPasswordEvent;
 import win.sectorfive.viflcraftauth.api.event.events.WrongPasswordEvent.AuthenticationSource;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.config.ConfigurationKeys;
 
 public class LoginTryListener<P, S> {
 
-    private final AuthenticLibreLogin<P, S> plugin;
+    private final AuthenticViflcraftAuth<P, S> plugin;
     private final Cache<P, Integer> loginTries;
 
-    public LoginTryListener(AuthenticLibreLogin<P, S> libreLogin) {
+    public LoginTryListener(AuthenticViflcraftAuth<P, S> libreLogin) {
         this.plugin = libreLogin;
         this.loginTries = Caffeine.newBuilder()
                 .expireAfterAccess(plugin.getConfiguration().get(ConfigurationKeys.MILLISECONDS_TO_EXPIRE_LOGIN_ATTEMPTS), TimeUnit.MILLISECONDS)

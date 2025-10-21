@@ -16,7 +16,7 @@ import win.sectorfive.viflcraftauth.api.crypto.CryptoProvider;
 import win.sectorfive.viflcraftauth.api.crypto.HashedPassword;
 import win.sectorfive.viflcraftauth.api.database.ReadWriteDatabaseProvider;
 import win.sectorfive.viflcraftauth.api.database.User;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.authorization.AuthenticAuthorizationProvider;
 import win.sectorfive.viflcraftauth.common.util.GeneralUtil;
 
@@ -24,9 +24,9 @@ import java.util.concurrent.CompletionStage;
 
 public class Command<P> extends BaseCommand {
 
-    protected final AuthenticLibreLogin<P, ?> plugin;
+    protected final AuthenticViflcraftAuth<P, ?> plugin;
 
-    public Command(AuthenticLibreLogin<P, ?> plugin) {
+    public Command(AuthenticViflcraftAuth<P, ?> plugin) {
         this.plugin = plugin;
     }
 

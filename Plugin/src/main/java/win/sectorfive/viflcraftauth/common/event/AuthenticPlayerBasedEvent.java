@@ -8,7 +8,7 @@ package win.sectorfive.viflcraftauth.common.event;
 
 import net.kyori.adventure.audience.Audience;
 import org.jetbrains.annotations.Nullable;
-import win.sectorfive.viflcraftauth.api.LibreLoginPlugin;
+import win.sectorfive.viflcraftauth.api.ViflcraftAuthPlugin;
 import win.sectorfive.viflcraftauth.api.PlatformHandle;
 import win.sectorfive.viflcraftauth.api.database.User;
 import win.sectorfive.viflcraftauth.api.event.PlayerBasedEvent;
@@ -21,10 +21,10 @@ public class AuthenticPlayerBasedEvent<P, S> implements PlayerBasedEvent<P, S> {
     private final Audience audience;
     private final UUID uuid;
     private final P player;
-    private final LibreLoginPlugin<P, S> plugin;
+    private final ViflcraftAuthPlugin<P, S> plugin;
     private final PlatformHandle<P, S> platformHandle;
 
-    public AuthenticPlayerBasedEvent(@Nullable User user, @Nullable P player, LibreLoginPlugin<P, S> plugin) {
+    public AuthenticPlayerBasedEvent(@Nullable User user, @Nullable P player, ViflcraftAuthPlugin<P, S> plugin) {
         this.plugin = plugin;
         this.platformHandle = plugin.getPlatformHandle();
         this.user = user;
@@ -54,7 +54,7 @@ public class AuthenticPlayerBasedEvent<P, S> implements PlayerBasedEvent<P, S> {
     }
 
     @Override
-    public LibreLoginPlugin<P, S> getPlugin() {
+    public ViflcraftAuthPlugin<P, S> getPlugin() {
         return plugin;
     }
 

@@ -13,7 +13,7 @@ import win.sectorfive.viflcraftauth.api.database.User;
 import win.sectorfive.viflcraftauth.api.event.events.AuthenticatedEvent;
 import win.sectorfive.viflcraftauth.api.premium.PremiumException;
 import win.sectorfive.viflcraftauth.api.premium.PremiumUser;
-import win.sectorfive.viflcraftauth.common.AuthenticLibreLogin;
+import win.sectorfive.viflcraftauth.common.AuthenticViflcraftAuth;
 import win.sectorfive.viflcraftauth.common.authorization.ProfileConflictResolutionStrategy;
 import win.sectorfive.viflcraftauth.common.command.InvalidCommandArgument;
 import win.sectorfive.viflcraftauth.common.config.ConfigurationKeys;
@@ -26,7 +26,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.regex.Pattern;
 
-public class AuthenticListeners<Plugin extends AuthenticLibreLogin<P, S>, P, S> {
+public class AuthenticListeners<Plugin extends AuthenticViflcraftAuth<P, S>, P, S> {
 
     @SuppressWarnings("RegExpSimplifiable") //I don't believe you
     private static final Pattern NAME_PATTERN = Pattern.compile("[a-zA-Z0-9_]*");
