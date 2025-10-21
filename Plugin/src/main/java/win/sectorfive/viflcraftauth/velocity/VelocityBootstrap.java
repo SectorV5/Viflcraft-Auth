@@ -29,10 +29,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Plugin(
-        id = "librelogin",
-        name = "LibreLogin",
+        id = "viflcraftauth",
+        name = "ViflcraftAuth",
         version = "@version@",
-        authors = "kyngs",
+        authors = "SectorFive",
         dependencies = {
                 @Dependency(id = "floodgate", optional = true),
                 @Dependency(id = "luckperms", optional = true),
