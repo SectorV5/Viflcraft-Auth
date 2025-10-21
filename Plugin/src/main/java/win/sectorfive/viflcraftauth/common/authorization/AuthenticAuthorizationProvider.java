@@ -55,9 +55,6 @@ public class AuthenticAuthorizationProvider<P, S> extends AuthenticHandler<P, S>
 
     public void onExit(P player) {
         stopTracking(player);
-        awaiting2FA.remove(player);
-        emailConfirmCache.invalidate(platformHandle.getUUIDForPlayer(player));
-        passwordResetCache.invalidate(platformHandle.getUUIDForPlayer(player));
     }
 
     @Override
