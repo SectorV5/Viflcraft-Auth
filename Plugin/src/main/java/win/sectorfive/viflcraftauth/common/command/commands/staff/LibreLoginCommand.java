@@ -280,7 +280,7 @@ public class LibreLoginCommand<P> extends StaffCommand<P> {
             audience.sendMessage(getMessage("info-editing"));
 
             user.setHashedPassword(null);
-            user.setSecret(null);
+            // TOTP 2FA feature removed - setSecret() method no longer exists
             user.setIp(null);
             user.setLastAuthentication(null);
             user.setPremiumUUID(null);
