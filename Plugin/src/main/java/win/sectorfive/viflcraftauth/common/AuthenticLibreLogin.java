@@ -110,7 +110,7 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
     private CommandProvider<P, S> commandProvider;
     private ReadWriteDatabaseProvider databaseProvider;
     private DatabaseConnector<?, ?> databaseConnector;
-    private AuthenticEMailHandler eMailHandler;
+    // Email handler removed - email functionality not supported
     private LoginTryListener<P, S> loginTryListener;
 
     protected AuthenticLibreLogin() {
