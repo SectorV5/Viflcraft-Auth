@@ -667,12 +667,15 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
     }
 
     @Override
+    // Data migration feature removed
+    /*
     public void migrate(ReadDatabaseProvider from, WriteDatabaseProvider to) {
         logger.info("Reading data...");
         var users = from.getAllUsers();
         logger.info("Data read, inserting into database...");
         to.insertUsers(users);
     }
+    */
 
     @Override
     public AuthenticEventProvider<P, S> getEventProvider() {
