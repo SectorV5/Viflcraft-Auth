@@ -110,14 +110,6 @@ public interface LibreLoginPlugin<P, S> {
     ImageProjector<P> getImageProjector();
 
     /**
-     * Allows you to migrate the database.
-     *
-     * @param from The database to migrate from
-     * @param to   The database to migrate to
-     */
-    void migrate(ReadDatabaseProvider from, WriteDatabaseProvider to);
-
-    /**
      * Gets the read providers (immutable).
      *
      * @return The immutable map of read providers
