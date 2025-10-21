@@ -98,7 +98,7 @@ public class ConfigurationKeys {
 
     public static final ConfigurationKey<Integer> MAX_LOGIN_ATTEMPTS = new ConfigurationKey<>(
             "max-login-attempts",
-            -1,
+            6,
             "Kick the player, if the password was incorrect more or equal times. -1 means disabled",
             ConfigurateHelper::getInt
     );
