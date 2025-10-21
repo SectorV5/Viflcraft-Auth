@@ -81,17 +81,6 @@ public class AuthenticAuthorizationProvider<P, S> extends AuthenticHandler<P, S>
         plugin.authorize(player, user, audience);
     }
 
-    @Override
-    public boolean confirmTwoFactorAuth(P player, Integer code, User user) {
-        var secret = awaiting2FA.get(player);
-        if (plugin.getTOTPProvider().verify(code, secret)) {
-            user.setSecret(secret);
-            plugin.getDatabaseProvider().updateUser(user);
-            return true;
-        }
-        return false;
-    }
-
     public void startTracking(User user, P player) {
         var audience = platformHandle.getAudienceForPlayer(player);
 
