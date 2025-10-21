@@ -173,7 +173,7 @@ public class ConfigurationKeys {
 
     public static final ConfigurationKey<Integer> SECONDS_TO_AUTHORIZE = new ConfigurationKey<>(
             "seconds-to-authorize",
-            -1,
+            600,
             "Sets the login/register time limit in seconds. Set to negative to disable.",
             ConfigurateHelper::getInt
     );
