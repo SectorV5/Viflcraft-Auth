@@ -229,7 +229,7 @@ public class ConfigurationKeys {
 
     public static final ConfigurationKey<Integer> MINIMUM_USERNAME_LENGTH = new ConfigurationKey<>(
             "minimum-username-length",
-            -1,
+            3,
             "The minimum length the player's name can have. Only applies to new players, set to 0 or lower to disable.",
             ConfigurateHelper::getInt
     );
