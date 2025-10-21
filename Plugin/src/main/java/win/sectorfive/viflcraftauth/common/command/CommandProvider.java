@@ -74,7 +74,7 @@ public class CommandProvider<P, S> extends AuthenticHandler<P, S> {
         });
 
         manager.setDefaultExceptionHandler((command, registeredCommand, sender, args, t) -> {
-            if (!(t instanceof xyz.kyngs.librelogin.common.command.InvalidCommandArgument ourEx)) {
+            if (!(t instanceof InvalidCommandArgument ourEx)) {
                 var logger = plugin.getLogger();
 
                 logger.error("An unexpected exception occurred while performing command, please attach the stacktrace below and report this issue.");
