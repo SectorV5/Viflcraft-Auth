@@ -667,7 +667,7 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
     }
 
     @Override
-    // Data migration feature removed
+    // Data migration feature removed - migrate() method removed from interface
     /*
     public void migrate(ReadDatabaseProvider from, WriteDatabaseProvider to) {
         logger.info("Reading data...");
@@ -677,7 +677,6 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
     }
     */
 
-    @Override
     public AuthenticEventProvider<P, S> getEventProvider() {
         return eventProvider;
     }
