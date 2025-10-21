@@ -16,7 +16,7 @@ import win.sectorfive.viflcraftauth.common.event.events.AuthenticWrongPasswordEv
 import java.util.UUID;
 import java.util.concurrent.CompletionStage;
 
-@CommandAlias("premium|autologin")
+@CommandAlias("premium")
 public class PremiumEnableCommand<P> extends PremiumCommand<P> {
 
     public PremiumEnableCommand(AuthenticLibreLogin<P, ?> plugin) {
