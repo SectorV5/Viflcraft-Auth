@@ -35,7 +35,6 @@ public class AuthenticAuthorizationProvider<P, S> extends AuthenticHandler<P, S>
     public AuthenticAuthorizationProvider(AuthenticLibreLogin<P, S> plugin) {
         super(plugin);
         unAuthorized = new ConcurrentHashMap<>();
-        awaiting2FA = new ConcurrentHashMap<>();
 
         var millis = plugin.getConfiguration().get(ConfigurationKeys.MILLISECONDS_TO_REFRESH_NOTIFICATION);
 
@@ -44,14 +43,6 @@ public class AuthenticAuthorizationProvider<P, S> extends AuthenticHandler<P, S>
         }
 
         plugin.repeat(this::broadcastActionbars, 0, 1000);
-
-        emailConfirmCache = Caffeine.newBuilder()
-                .expireAfterWrite(10, TimeUnit.MINUTES)
-                .build();
-
-        passwordResetCache = Caffeine.newBuilder()
-                .expireAfterWrite(10, TimeUnit.MINUTES)
-                .build();
     }
 
     public Cache<UUID, EmailVerifyData> getEmailConfirmCache() {
