@@ -78,16 +78,16 @@ if ! grep -q "^net.ipv6.conf.all.forwarding=1" /etc/sysctl.conf; then
 fi
 sysctl -p
 
-echo -e "${YELLOW}[4/10] Setting up WireGuard VPN...${NC}"
-# The WireGuard config will be copied here
+echo -e "${YELLOW}[4/10] Setting up WireGuard VPN (VM-ONLY routing)...${NC}"
+# CRITICAL: This config routes ONLY VM traffic through VPN, NOT the host
 cat > $VPN_CONFIG << 'VPNEOF'
 [Interface]
 Address = 10.173.212.207/32,fd7d:76ee:e68f:a993:24e4:43b5:bf29:5238/128
 PrivateKey = aEV1+EHV+NGqe4rd7CjG1/to383pOpP+YUdRGPeMEXA=
 MTU = 1320
-DNS = 10.128.0.1, fd7d:76ee:e68f:a993::1
-PostUp = iptables -A FORWARD -i vm-bridge -o wg0 -j ACCEPT; iptables -A FORWARD -i wg0 -o vm-bridge -m state --state RELATED,ESTABLISHED -j ACCEPT; iptables -t nat -A POSTROUTING -o wg0 -j MASQUERADE; iptables -A FORWARD -i vm-bridge ! -o wg0 -j REJECT
-PostDown = iptables -D FORWARD -i vm-bridge -o wg0 -j ACCEPT; iptables -D FORWARD -i wg0 -o vm-bridge -m state --state RELATED,ESTABLISHED -j ACCEPT; iptables -t nat -D POSTROUTING -o wg0 -j MASQUERADE; iptables -D FORWARD -i vm-bridge ! -o wg0 -j REJECT
+Table = off
+PostUp = ip route add 10.10.10.0/24 dev wg0; iptables -A FORWARD -i vm-bridge -o wg0 -j ACCEPT; iptables -A FORWARD -i wg0 -o vm-bridge -m state --state RELATED,ESTABLISHED -j ACCEPT; iptables -t nat -A POSTROUTING -s 10.10.10.0/24 -o wg0 -j MASQUERADE; iptables -A FORWARD -i vm-bridge ! -o wg0 -j REJECT
+PostDown = ip route del 10.10.10.0/24 dev wg0 2>/dev/null; iptables -D FORWARD -i vm-bridge -o wg0 -j ACCEPT; iptables -D FORWARD -i wg0 -o vm-bridge -m state --state RELATED,ESTABLISHED -j ACCEPT; iptables -t nat -D POSTROUTING -s 10.10.10.0/24 -o wg0 -j MASQUERADE; iptables -D FORWARD -i vm-bridge ! -o wg0 -j REJECT
 
 [Peer]
 PublicKey = PyLCXAQT8KkM4T+dUsOQfn+Ub3pGxfGlxkIApuig+hk=

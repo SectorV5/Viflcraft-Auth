@@ -450,7 +450,9 @@ sudo virsh domiflist isolated-vm
 
 **Check WireGuard config syntax:**
 ```bash
-sudo wg-quick up /opt/secure-vm/wireguard/airvpn.conf
+sudo wg-quick up /opt/
+
+secure-vm/wireguard/airvpn.conf
 # Look for error messages
 ```
 
