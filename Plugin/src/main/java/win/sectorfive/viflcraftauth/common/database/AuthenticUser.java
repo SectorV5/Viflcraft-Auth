@@ -21,20 +21,18 @@ public class AuthenticUser implements User {
     private String lastNickname;
     private Timestamp joinDate;
     private Timestamp lastSeen;
-    private String secret;
     private String ip;
     private Timestamp lastAuthentication;
     private String lastServer;
     private String email;
 
-    public AuthenticUser(UUID uuid, UUID premiumUUID, HashedPassword hashedPassword, String lastNickname, Timestamp joinDate, Timestamp lastSeen, String secret, String ip, Timestamp lastAuthentication, String lastServer, String email) {
+    public AuthenticUser(UUID uuid, UUID premiumUUID, HashedPassword hashedPassword, String lastNickname, Timestamp joinDate, Timestamp lastSeen, String ip, Timestamp lastAuthentication, String lastServer, String email) {
         this.uuid = uuid;
         this.premiumUUID = premiumUUID;
         this.hashedPassword = hashedPassword;
         this.lastNickname = lastNickname;
         this.joinDate = joinDate;
         this.lastSeen = lastSeen;
-        this.secret = secret;
         this.ip = ip;
         this.lastAuthentication = lastAuthentication;
         this.lastServer = lastServer;
