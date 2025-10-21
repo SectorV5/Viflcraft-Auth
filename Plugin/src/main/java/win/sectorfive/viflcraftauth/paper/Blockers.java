@@ -50,7 +50,7 @@ public class Blockers implements Listener {
     }
 
     private boolean inLimbo(Player player) {
-        return !authorizationProvider.isAuthorized(player) || authorizationProvider.isAwaiting2FA(player);
+        return !authorizationProvider.isAuthorized(player);
     }
 
     @EventHandler(priority = EventPriority.LOWEST)
