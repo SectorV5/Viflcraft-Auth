@@ -29,8 +29,6 @@ import win.sectorfive.viflcraftauth.api.integration.LimboIntegration;
 import win.sectorfive.viflcraftauth.api.premium.PremiumException;
 import win.sectorfive.viflcraftauth.api.premium.PremiumUser;
 import win.sectorfive.viflcraftauth.api.server.ServerHandler;
-import win.sectorfive.viflcraftauth.api.util.Release;
-import win.sectorfive.viflcraftauth.api.util.SemanticVersion;
 import win.sectorfive.viflcraftauth.api.util.ThrowableFunction;
 import win.sectorfive.viflcraftauth.common.authorization.AuthenticAuthorizationProvider;
 import win.sectorfive.viflcraftauth.common.command.CommandProvider;
