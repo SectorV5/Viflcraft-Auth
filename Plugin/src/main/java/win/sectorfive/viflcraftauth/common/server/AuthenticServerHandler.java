@@ -25,7 +25,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.Optional;
 
-import static xyz.kyngs.librelogin.common.config.ConfigurationKeys.*;
+import static win.sectorfive.viflcraftauth.common.config.ConfigurationKeys.*;
 
 public class AuthenticServerHandler<P, S> implements ServerHandler<P, S> {
 

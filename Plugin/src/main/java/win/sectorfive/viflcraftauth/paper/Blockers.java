@@ -25,7 +25,7 @@ import win.sectorfive.viflcraftauth.api.authorization.AuthorizationProvider;
 import win.sectorfive.viflcraftauth.api.server.ServerHandler;
 import win.sectorfive.viflcraftauth.common.config.HoconPluginConfiguration;
 
-import static xyz.kyngs.librelogin.common.config.ConfigurationKeys.ALLOWED_COMMANDS_WHILE_UNAUTHORIZED;
+import static win.sectorfive.viflcraftauth.common.config.ConfigurationKeys.ALLOWED_COMMANDS_WHILE_UNAUTHORIZED;
 
 public class Blockers implements Listener {
 

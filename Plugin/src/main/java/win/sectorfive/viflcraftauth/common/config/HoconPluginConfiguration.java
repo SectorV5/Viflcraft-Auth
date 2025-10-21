@@ -17,8 +17,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import static xyz.kyngs.librelogin.common.config.ConfigurationKeys.DEFAULT_CRYPTO_PROVIDER;
-import static xyz.kyngs.librelogin.common.config.ConfigurationKeys.NEW_UUID_CREATOR;
+import static win.sectorfive.viflcraftauth.common.config.ConfigurationKeys.DEFAULT_CRYPTO_PROVIDER;
+import static win.sectorfive.viflcraftauth.common.config.ConfigurationKeys.NEW_UUID_CREATOR;
 
 public class HoconPluginConfiguration {
 

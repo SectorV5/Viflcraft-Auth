@@ -41,7 +41,7 @@ import java.nio.file.Path;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-import static xyz.kyngs.librelogin.common.config.ConfigurationKeys.DEBUG;
+import static win.sectorfive.viflcraftauth.common.config.ConfigurationKeys.DEBUG;
 
 public class VelocityLibreLogin extends AuthenticLibreLogin<Player, RegisteredServer> {
 

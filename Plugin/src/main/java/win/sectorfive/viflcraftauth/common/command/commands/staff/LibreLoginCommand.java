@@ -30,8 +30,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.CompletionStage;
 
-import static xyz.kyngs.librelogin.common.AuthenticLibreLogin.DATE_TIME_FORMATTER;
-import static xyz.kyngs.librelogin.common.AuthenticLibreLogin.GSON;
+import static win.sectorfive.viflcraftauth.common.AuthenticLibreLogin.DATE_TIME_FORMATTER;
+import static win.sectorfive.viflcraftauth.common.AuthenticLibreLogin.GSON;
 
 @CommandAlias("librelogin")
 public class LibreLoginCommand<P> extends StaffCommand<P> {

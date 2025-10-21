@@ -52,7 +52,7 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import javax.crypto.*;
 
-import static xyz.kyngs.librelogin.paper.protocol.ProtocolUtil.getServerVersion;
+import static win.sectorfive.viflcraftauth.paper.protocol.ProtocolUtil.getServerVersion;
 
 public class PaperListeners extends AuthenticListeners<PaperLibreLogin, Player, World> implements Listener {
 

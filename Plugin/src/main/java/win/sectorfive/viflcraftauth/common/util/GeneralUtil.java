@@ -31,8 +31,8 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 import java.util.concurrent.ForkJoinPool;
 
-import static xyz.kyngs.librelogin.common.config.ConfigurationKeys.DATABASE_TYPE;
-import static xyz.kyngs.librelogin.common.config.ConfigurationKeys.MIGRATION_TYPE;
+import static win.sectorfive.viflcraftauth.common.config.ConfigurationKeys.DATABASE_TYPE;
+import static win.sectorfive.viflcraftauth.common.config.ConfigurationKeys.MIGRATION_TYPE;
 
 public class GeneralUtil {
 

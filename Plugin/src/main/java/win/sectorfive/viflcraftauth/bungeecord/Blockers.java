@@ -16,8 +16,8 @@ import net.md_5.bungee.event.EventPriority;
 import win.sectorfive.viflcraftauth.api.authorization.AuthorizationProvider;
 import win.sectorfive.viflcraftauth.common.config.HoconPluginConfiguration;
 
-import static xyz.kyngs.librelogin.common.config.ConfigurationKeys.ALLOWED_COMMANDS_WHILE_UNAUTHORIZED;
-import static xyz.kyngs.librelogin.common.config.ConfigurationKeys.LIMBO;
+import static win.sectorfive.viflcraftauth.common.config.ConfigurationKeys.ALLOWED_COMMANDS_WHILE_UNAUTHORIZED;
+import static win.sectorfive.viflcraftauth.common.config.ConfigurationKeys.LIMBO;
 
 public class Blockers implements Listener {
 
