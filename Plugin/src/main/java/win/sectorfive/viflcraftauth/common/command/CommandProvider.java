@@ -50,7 +50,7 @@ public class CommandProvider<P, S> extends AuthenticHandler<P, S> {
 
         contexts.registerIssuerAwareContext(Audience.class, context -> {
             if (limiter.tryAndLimit(context.getIssuer().getUniqueId()))
-                throw new xyz.kyngs.librelogin.common.command.InvalidCommandArgument(plugin.getMessages().getMessage("error-throttle"));
+                throw new InvalidCommandArgument(plugin.getMessages().getMessage("error-throttle"));
             return plugin.getAudienceFromIssuer(context.getIssuer());
         });
 
