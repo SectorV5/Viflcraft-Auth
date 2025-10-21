@@ -76,69 +76,12 @@ public class GeneralUtil {
         return UUID.nameUUIDFromBytes(("OfflinePlayer:" + name).getBytes(StandardCharsets.UTF_8));
     }
 
+    // Data migration feature removed
+    /*
     public static void checkAndMigrate(HoconPluginConfiguration configuration, Logger logger, AuthenticLibreLogin<?, ?> plugin) {
-        if (configuration.get(ConfigurationKeys.MIGRATION_ON_NEXT_STARTUP)) {
-            logger.info("Performing migration...");
-
-            try {
-                logger.info("Connecting to the OLD database...");
-
-                ReadDatabaseProvider provider;
-                DatabaseConnector<?, ?> connector = null;
-
-                try {
-                    var registration = plugin.getReadProviders().get(configuration.get(MIGRATION_TYPE));
-                    if (registration == null) {
-                        logger.error("Migration type %s doesn't exist, please check your configuration".formatted(configuration.get(MIGRATION_TYPE)));
-                        logger.error("Aborting migration");
-                        return;
-                    }
-
-                    if (registration.databaseConnector() != null) {
-                        var connectorRegistration = plugin.getDatabaseConnector(registration.databaseConnector());
-
-                        if (connectorRegistration == null) {
-                            logger.error("Migration type %s is corrupted, please use a different one".formatted(configuration.get(DATABASE_TYPE)));
-                            logger.error("Aborting migration");
-                            return;
-                        }
-
-                        connector = connectorRegistration.factory().apply("migration.old-database." + connectorRegistration.id() + ".");
-
-                        connector.connect();
-                    }
-
-                    provider = registration.create(connector);
-
-                    logger.info("Connected to the OLD database");
-
-                } catch (Exception e) {
-                    var cause = GeneralUtil.getFurthestCause(e);
-                    logger.error("!! THIS IS NOT AN ERROR CAUSED BY LIBRELOGIN !!");
-                    logger.error("Failed to connect to the OLD database, this most likely is caused by wrong credentials. Cause: %s: %s".formatted(cause.getClass().getSimpleName(), cause.getMessage()));
-                    logger.error("Aborting migration");
-
-                    return;
-                }
-
-                try {
-                    logger.info("Starting data conversion... This may take a while!");
-
-                    plugin.migrate(provider, plugin.getDatabaseProvider());
-
-                    logger.info("Migration complete, cleaning up!");
-
-                } finally {
-                    if (connector != null) connector.disconnect();
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-                logger.error("An unexpected exception occurred while performing database migration, aborting migration");
-            }
-
-        }
+        // Migration feature has been removed from Viflcraft Auth
     }
+    */
 
     public static CompletionStage<Void> runAsync(Runnable runnable) {
         var future = new CompletableFuture<Void>();
