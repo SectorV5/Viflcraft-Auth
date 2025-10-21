@@ -32,7 +32,6 @@ import win.sectorfive.viflcraftauth.api.integration.LimboIntegration;
 import win.sectorfive.viflcraftauth.api.premium.PremiumException;
 import win.sectorfive.viflcraftauth.api.premium.PremiumUser;
 import win.sectorfive.viflcraftauth.api.server.ServerHandler;
-import win.sectorfive.viflcraftauth.api.totp.TOTPProvider;
 import win.sectorfive.viflcraftauth.api.util.Release;
 import win.sectorfive.viflcraftauth.api.util.SemanticVersion;
 import win.sectorfive.viflcraftauth.api.util.ThrowableFunction;
@@ -65,7 +64,6 @@ import win.sectorfive.viflcraftauth.common.mail.AuthenticEMailHandler;
 import win.sectorfive.viflcraftauth.common.migrate.*;
 import win.sectorfive.viflcraftauth.common.premium.AuthenticPremiumProvider;
 import win.sectorfive.viflcraftauth.common.server.AuthenticServerHandler;
-import win.sectorfive.viflcraftauth.common.totp.AuthenticTOTPProvider;
 import win.sectorfive.viflcraftauth.common.util.CancellableTask;
 import win.sectorfive.viflcraftauth.common.util.GeneralUtil;
 
@@ -222,11 +220,6 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
     }
 
     @Override
-    public TOTPProvider getTOTPProvider() {
-        return totpProvider;
-    }
-
-    @Override
     public AuthenticImageProjector<P, S> getImageProjector() {
         return imageProjector;
     }
@@ -292,19 +285,6 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
         checkDataFolder();
 
         loadConfigs();
-
-        logger.info("Loading forbidden passwords...");
-
-        try {
-            loadForbiddenPasswords();
-        } catch (IOException e) {
-            e.printStackTrace();
-            logger.info("An unknown exception occurred while attempting to load the forbidden passwords, this most likely isn't your fault");
-            shutdownProxy(1);
-        }
-
-        logger.info("Loaded %s forbidden passwords".formatted(forbiddenPasswords.size()));
-
         connectToDB();
 
         serverHandler = new AuthenticServerHandler<>(this);
@@ -323,10 +303,7 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
             } else {
                 imageProjector.enable();
             }
-        }
-
-        totpProvider = imageProjector == null ? null : new AuthenticTOTPProvider(this);
-        eMailHandler = configuration.get(MAIL_ENABLED) ? new AuthenticEMailHandler(this) : null;
+        }        eMailHandler = configuration.get(MAIL_ENABLED) ? new AuthenticEMailHandler(this) : null;
 
         authorizationProvider = new AuthenticAuthorizationProvider<>(this);
         commandProvider = new CommandProvider<>(this);
@@ -603,15 +580,7 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
         ));*/
     }
 
-    private void loadForbiddenPasswords() throws IOException {
-        var file = new File(getDataFolder(), "forbidden-passwords.txt");
 
-        if (!file.exists()) {
-            logger.info("Forbidden passwords list doesn't exist, downloading...");
-            try (BufferedInputStream in = new BufferedInputStream(new URL("https://raw.githubusercontent.com/kyngs/LibreLogin/dev/forbidden-passwords.txt").openStream())) {
-                if (!file.createNewFile()) {
-                    throw new IOException("Failed to create file");
-                }
                 try (var fos = new FileOutputStream(file)) {
                     var dataBuffer = new byte[1024];
                     int bytesRead;
