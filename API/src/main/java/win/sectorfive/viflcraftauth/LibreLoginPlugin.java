@@ -103,13 +103,6 @@ public interface LibreLoginPlugin<P, S> {
     ReadWriteDatabaseProvider getDatabaseProvider();
 
     /**
-     * Gets the plugin's TOTP provider.
-     *
-     * @return The TOTP provider
-     */
-    TOTPProvider getTOTPProvider();
-
-    /**
      * Gets the plugin's image projector.
      *
      * @return The image projector
